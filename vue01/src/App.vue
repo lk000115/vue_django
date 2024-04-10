@@ -1,5 +1,6 @@
 <script setup>
 import Person from './components/Person.vue';
+import{RouterView, RouterLink} from 'vue-router'
 </script>
 
 <template>
@@ -10,13 +11,13 @@ import Person from './components/Person.vue';
       <el-header>
         <el-row class="row-bg" justify="end">
           <el-col :span="6">
-            <el-button type="primary">首页</el-button>
+              <router-link to="/home" active-class="ac">首页</router-link>  
           </el-col>
           <el-col :span="6">
-            <el-button type="primary">新闻</el-button>
+            <router-link to="/news"  active-class="ac">新闻</router-link>
           </el-col>
           <el-col :span="6">
-            <el-button type="primary">列表</el-button>
+            <router-link to="/about"  active-class="ac">关于</router-link>
           </el-col>
         </el-row>
       </el-header>
@@ -49,7 +50,7 @@ import Person from './components/Person.vue';
           <!--  -->
         </el-aside>
         <el-main>
-          Main
+             <RouterView></RouterView>
         </el-main>
       </el-container>
     </el-container>
@@ -60,7 +61,10 @@ import Person from './components/Person.vue';
 </template>
 
 <style scoped>
-.el-col {}
+.el-col .ac  {
+    color: red;
+
+}
 
 .el-header {
   padding: 15px 20px;
