@@ -25,22 +25,20 @@ import{RouterView, RouterLink} from 'vue-router'
         <el-aside width="200px">
           <!--  -->
           <el-col >
-            <h5 class="mb-2">Default colors</h5>
+            <h5 class="mb-2" >
+              <el-icon><Menu /></el-icon>
+              功能列表</h5>
             <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
               <el-menu-item index="1">
-                <el-icon><icon-menu /></el-icon>
+                <el-icon><Search /></el-icon>
                 <span>Navigator 1</span>
               </el-menu-item>
               <el-menu-item index="2" >
-                <el-icon>
-                  <document />
-                </el-icon>
+                <el-icon><Search /></el-icon>
                 <span>Navigator 2</span>
               </el-menu-item>
               <el-menu-item index="3">
-                <el-icon>
-                  <setting />
-                </el-icon>
+                <el-icon> <setting /></el-icon>
                 <span>Navigator 3</span>
               </el-menu-item>
             </el-menu>
