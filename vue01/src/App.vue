@@ -1,5 +1,4 @@
 <script setup>
-import Person from './components/Person.vue';
 import{RouterView, RouterLink} from 'vue-router'
 </script>
 
@@ -14,10 +13,10 @@ import{RouterView, RouterLink} from 'vue-router'
               <router-link to="/home" active-class="ac">首页</router-link>  
           </el-col>
           <el-col :span="6">
-            <router-link to="/news"  active-class="ac">新闻</router-link>
+            <router-link :to="{name:'xinwen'}"  active-class="ac">新闻</router-link>
           </el-col>
           <el-col :span="6">
-            <router-link to="/about"  active-class="ac">关于</router-link>
+            <router-link :to="{path: '/about'}"  active-class="ac">关于</router-link>
           </el-col>
         </el-row>
       </el-header>
