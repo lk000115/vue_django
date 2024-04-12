@@ -4,7 +4,7 @@
             <el-aside width="200px">
                 <ul>
                     <li v-for="item in newsList" :key="item.id">
-                        <button @click="showNewsDetail">查看详情</button>
+                        <button @click="showNewsDetail(item)">查看详情</button>
                         <!-- 第一种写法 -->
                         <!-- <RouterLink :to="`/news/detail?id=${item.id}&title=${item.title}&content=${item.content}` "  style="text-decoration:none; ">{{ item.title }}</RouterLink> -->
                         <!-- 第二种写法 -->
@@ -37,7 +37,7 @@
 
 
 <script setup name="News">
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView, RouterLink,useRouter } from 'vue-router'
 import { reactive } from 'vue'
 
 const newsList = reactive([
@@ -45,11 +45,20 @@ const newsList = reactive([
     { id: '002', title: '一种水果', content: '华为Mate60系列的强项是拍照，' },
     { id: '003', title: '一种蔬菜', content: '国产新发布的手机激活榜，我们可以从中看出端倪来' }
 ])
+const router = useRouter()
 
-function showNewsDetail(){
-    
+function showNewsDetail(item){
+    router.push({
+        name:'xq',
+        query:{
+        id:item.id,
+        title:item.title,
+        content:item.content
+        }
+    }
+    )
+
 }
-
 </script>
 
 <style scope>
