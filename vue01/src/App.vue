@@ -10,13 +10,13 @@ import{RouterView, RouterLink} from 'vue-router'
       <el-header>
         <el-row class="row-bg" justify="end">
           <el-col :span="6">
-              <router-link to="/home" active-class="ac">首页</router-link>  
+              <router-link to="/home" active-class="ac" class="rt">首页</router-link>  
           </el-col>
           <el-col :span="6">
-            <router-link :to="{name:'xinwen'}"  active-class="ac">新闻</router-link>
+              <router-link :to="{name:'xinwen'}"  active-class="ac" class="rt">新闻</router-link>
           </el-col>
           <el-col :span="6">
-            <router-link :to="{path: '/about'}"  active-class="ac">关于</router-link>
+              <router-link :to="{path: '/about'}"  active-class="ac" class="rt">关于</router-link>
           </el-col>
         </el-row>
       </el-header>
@@ -58,9 +58,13 @@ import{RouterView, RouterLink} from 'vue-router'
 </template>
 
 <style scoped>
-.el-col .ac  {
+.el-col .ac {
     color: red;
+    
 
+}
+.el-col .rt{
+  text-decoration:none;
 }
 
 .el-header {
@@ -96,4 +100,6 @@ import{RouterView, RouterLink} from 'vue-router'
   border-radius: 4px;
   min-height: 36px;
 }
+
+
 </style>

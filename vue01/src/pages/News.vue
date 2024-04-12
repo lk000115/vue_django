@@ -5,7 +5,7 @@
                 <ul>
                     <li v-for="item in newsList" :key="item.id">
                         <!-- {{ item.title }} -->
-                        <RouterLink to="/news/detail" style="text-decoration:none; ">{{ item.title }}</RouterLink>
+                        <RouterLink :to="`/news/detail?id=${item.id}&title=${item.title}&content=${item.content}` "  style="text-decoration:none; ">{{ item.title }}</RouterLink>
                     </li>
                 </ul>
             </el-aside>
