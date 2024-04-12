@@ -4,8 +4,24 @@
             <el-aside width="200px">
                 <ul>
                     <li v-for="item in newsList" :key="item.id">
-                        <!-- {{ item.title }} -->
-                        <RouterLink :to="`/news/detail?id=${item.id}&title=${item.title}&content=${item.content}` "  style="text-decoration:none; ">{{ item.title }}</RouterLink>
+                        <!-- 第一种写法 -->
+                        <!-- <RouterLink :to="`/news/detail?id=${item.id}&title=${item.title}&content=${item.content}` "  style="text-decoration:none; ">{{ item.title }}</RouterLink> -->
+                        <!-- 第二种写法 -->
+                        <RouterLink  
+                           style="text-decoration:none;"
+                           :to="{
+                              name:'xq',
+                              query:{
+                                id:item.id,
+                                title:item.title,
+                                content:item.content
+                              }
+                           }"  
+                        >
+
+                        {{ item.title }}
+                        </RouterLink>
+
                     </li>
                 </ul>
             </el-aside>
