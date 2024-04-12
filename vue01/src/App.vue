@@ -74,7 +74,10 @@ import{RouterView, RouterLink} from 'vue-router'
 }
 
 .el-main {
-  background-color: #ff8345;
+  border-radius: 5px;
+  border-color: #E6E6FA;
+  border-style:groove;
+  /* background-color: #ff8345; */
 }
 
 .el-row {
