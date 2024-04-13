@@ -1,10 +1,8 @@
 <script setup>
-import{RouterView, RouterLink,useRouter} from 'vue-router'
+import{RouterView, routerLink} from 'vue-router'
 
-const router = useRouter()
 const handleOpen = (key,keyPath) => {
   console.log(key, keyPath)
-  router.push('/home')
    
 }
 const handleClose = (key, keyPath) => {
