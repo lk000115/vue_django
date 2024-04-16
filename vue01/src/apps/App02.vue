@@ -1,15 +1,18 @@
 <template>
-<div >
-    sdssdsdsd
-    <!-- <Header/> -->
-</div>
-
+  
+        <Header/>
+    <router-view></router-view>
 </template>
 
 <script   setup>
-// import Header from '@/components/Header.vue'
+import Header from '@/components/Header.vue'
+import{RouterView,RouterLink} from 'vue-router' 
+
+
 </script>
 
 
 <style scoped>
+
+
 </style> 

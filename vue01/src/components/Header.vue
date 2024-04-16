@@ -1,22 +1,26 @@
-<script setup  name="Header">
+<script setup >
 
-<h3>网页头部信息</h3>
+
 
 </script>
 
 <template>
-        
+   <div>
+    <h3>网页头部信息</h3>
+   </div>     
 
 </template>
 
 <style scoped>
 h3{
   height:80px;
-  background-color:#000;
+  background-color:#ADD8E6;
   color:#fff;
-  width:1200px;
-  margin:0 auto;
+  width:100%;
+  margin: 0 auto;
   overflow:hidden;
+  text-align: center;
+  line-height: 80px;
 }
 
 
