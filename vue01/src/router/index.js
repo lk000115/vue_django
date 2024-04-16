@@ -1,3 +1,9 @@
+/** 
+01_路由组件的导航
+入口为App.vue,组件文件夹:01_路由组件   
+*/
+
+
 //引入createRouter
 import {createRouter,createWebHashHistory} from 'vue-router'
 import Home from '@/pages/01_路由组件/Home.vue'
