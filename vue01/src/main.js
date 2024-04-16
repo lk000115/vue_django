@@ -6,12 +6,12 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 //导入路由
-import router from './router/index'
+import router from './router/index02.js'
 //导入图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 //导入启动的APP入口组件
-import App from './App.vue'
+import App from './apps/App02.vue'
 
 const app = createApp(App)
 
