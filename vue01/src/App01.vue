@@ -1,25 +1,25 @@
 <template>
     <div>
-        <h2><el-icon><Search /></el-icon>测试组件</h2>     
+        <h2><el-icon><Search /></el-icon>测试组件</h2>   
+        <RouterView></RouterView>
 
     </div> 
-    <table  class="demo-border">
-         <tbody>
-            <tr>
-                <td class="text">aaaaaaaaaaa</td>
-                <td class="line">bb</td>
-            </tr>
-         </tbody>
-
-    </table>
-
-    <el-row>
-    <el-col :span="24"><div class="grid-content ep-bg-purple-dark" />sdsdd</el-col>
-    </el-row>
+ 
 
 
 
 </template>
+
+
+
+
+<script  setup>
+import { RouterView,RouterLink } from 'vue-router';
+
+
+</script>
+
+
 
 
 
@@ -48,9 +48,4 @@
 </style>
 
 
-<script  setup>
-
-
-
-</script>
 
