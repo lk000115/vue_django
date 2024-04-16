@@ -73,12 +73,9 @@ import { RouterView,RouterLink } from 'vue-router';
 </style>
 
 
-<<<<<<< HEAD
 <script setup>
 
 
 
 </script>
-=======
 
->>>>>>> 7dff83a72271635563548a80d19708d46db3e847
