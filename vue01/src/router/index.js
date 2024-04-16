@@ -1,9 +1,9 @@
 //引入createRouter
 import {createRouter,createWebHashHistory} from 'vue-router'
-import Home from '@/pages/Home.vue'
-import News from '@/pages/News.vue'
-import About from '@/pages/About.vue'
-import Detail from '@/pages/Detail.vue'
+import Home from '@/pages/01_路由组件/Home.vue'
+import News from '@/pages/01_路由组件/News.vue'
+import About from '@/pages/01_路由组件/About.vue'
+import Detail from '@/pages/01_路由组件/Detail.vue'
 //创建路由器
 
 const router = createRouter({
