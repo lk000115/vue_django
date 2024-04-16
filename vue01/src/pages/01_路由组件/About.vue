@@ -7,6 +7,6 @@
 
 
 
-<script>
+<script setup>
 
 </script>

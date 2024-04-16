@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 
   <div class="common-layout">
     <el-container>
@@ -23,11 +24,29 @@
   </div>
 
 
+=======
+    <div>
+        <h2><el-icon><Search /></el-icon>测试组件</h2>   
+        <RouterView></RouterView>
+
+    </div> 
+>>>>>>> 7dff83a72271635563548a80d19708d46db3e847
  
 
 
 
 </template>
+
+
+
+
+<script  setup>
+import { RouterView,RouterLink } from 'vue-router';
+
+
+</script>
+
+
 
 
 
@@ -54,8 +73,12 @@
 </style>
 
 
+<<<<<<< HEAD
 <script setup>
 
 
 
 </script>
+=======
+
+>>>>>>> 7dff83a72271635563548a80d19708d46db3e847

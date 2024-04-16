@@ -12,12 +12,12 @@ import{useRouter}  from 'vue-router'
 
 const router = useRouter()
 
-onMounted(()=>{
-   setTimeout(() => {
-      router.push('/news')
-   }, 2000);   
+// onMounted(()=>{
+//    setTimeout(() => {
+//       router.push('/news')
+//    }, 2000);   
 
-})
+// })
 
 
 </script>

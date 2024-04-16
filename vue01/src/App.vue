@@ -1,13 +1,14 @@
 <script setup>
-import{RouterView, routerLink} from 'vue-router'
+import { RouterView,RouterLink } from 'vue-router';
+import{reactive} from'vue'
 
-const handleOpen = (key,keyPath) => {
-  console.log(key, keyPath)
+const items = reactive([
+   {path:"/home",title:"首页导航"},
+   {path:"/news",title:"新闻导航"},
+   {path:"/about",title:"关于导航"},
    
-}
-const handleClose = (key, keyPath) => {
-  console.log(key, keyPath)
-}
+])
+
 </script>
 
 <template>
@@ -33,20 +34,11 @@ const handleClose = (key, keyPath) => {
           <!--  -->
           <el-col >
             <h5 class="mb-2" >
-              <el-icon><Menu /></el-icon>
               功能列表</h5>
-            <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-              <el-menu-item index="1">
+            <el-menu default-active="1" class="el-menu-vertical-demo"  :router="true" >
+              <el-menu-item v-for="(item,i) in items" :key="i" :index="item.path" >
                 <el-icon><Search /></el-icon>
-                <span>Navigator 0</span>
-              </el-menu-item>
-              <el-menu-item index="4" >
-                <el-icon><Search /></el-icon>
-                <span>Navigator 2</span>
-              </el-menu-item>
-              <el-menu-item index="3">
-                <el-icon> <setting /></el-icon>
-                <span>Navigator 3</span>
+                <span>{{ item.title }}</span>
               </el-menu-item>
             </el-menu>
           </el-col>
