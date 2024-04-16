@@ -1,21 +1,29 @@
 <template>
-    <div>
-        <h2><el-icon><Search /></el-icon>测试组件</h2>     
 
-    </div> 
-    <table  class="demo-border">
-         <tbody>
-            <tr>
-                <td class="text">aaaaaaaaaaa</td>
-                <td class="line">bb</td>
-            </tr>
-         </tbody>
+  <div class="common-layout">
+    <el-container>
+      <el-header>
+        <el-row class="banner-box">
+          <el-col :span="2">
+            <div class="grid-content ep-bg-light">sdsdd </div>
+          </el-col>
+          <el-col :span="20">
+            <div class="grid-content ep-bg-light">
+              后台管理系统 </div>
+          </el-col>
+          <el-col :span="2">
+            <div class="grid-content ep-bg-light">ababab </div>
+          </el-col>
+        </el-row>
 
-    </table>
 
-    <el-row>
-    <el-col :span="24"><div class="grid-content ep-bg-purple-dark" />sdsdd</el-col>
-    </el-row>
+      </el-header>
+      <el-main>Main</el-main>
+    </el-container>
+  </div>
+
+
+ 
 
 
 
@@ -24,33 +32,30 @@
 
 
 <style scoped>
+.banner-box{
+   display: flex;
+   align-items: center; 
+  
+
+}
+
+
 .grid-content {
   border-radius: 4px;
   min-height: 20px;
 }
 
-
-
-
-
-
-
-.demo-border .text {
-  width: 15%;
-  border: 1px solid;
-  border-radius: 4px;
-
+.ep-bg-light {
+  background-color: aqua;
 }
-
 
 
 
 </style>
 
 
-<script  setup>
+<script setup>
 
 
 
 </script>
-
