@@ -13,14 +13,15 @@
 
 <style scoped>
 h3{
-  height:80px;
+  height:60px;
   background-color:#ADD8E6;
   color:#fff;
   width:100%;
   margin: 0 auto;
   overflow:hidden;
   text-align: center;
-  line-height: 80px;
+  line-height: 60px;
+  border-radius: 5px;
 }
 
 

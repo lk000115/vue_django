@@ -1,7 +1,21 @@
 <template>
+
+  <div class="common-layout">
+    <Header/>
+    <el-container>
+      <el-aside width="200px">
+        Aside
+    </el-aside>
+      <el-main>
+        <router-view></router-view>
+    </el-main>
+    </el-container>
+  </div>
+
+
   
-        <Header/>
-    <router-view></router-view>
+        
+    
 </template>
 
 <script   setup>
