@@ -5,8 +5,8 @@
 
                 <el-menu class="el-menu-vertical-demo" :router="true">
 
-                    <el-menu-item v-for="(list, i) in newsList" :key="i" 
-                       :route="{name:'xq',query:{id:list.id,content:list.content}}"
+                    <el-menu-item v-for="(list, i) in newsList" :key="i" index="/news/detail"
+                       :route="{query:{id:list.id,content:list.content}}"
                        >
                         <span>{{ list.title }}</span>
                     </el-menu-item>
