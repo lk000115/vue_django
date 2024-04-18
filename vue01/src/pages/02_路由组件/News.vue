@@ -1,10 +1,39 @@
 <template>
-<div >
-    新闻页面
-</div>
-</template>
-<script   setup>
+    <div class="common-layout">
+        <el-container>
+            <el-aside width="150px">
 
+                <el-menu class="el-menu-vertical-demo" :router="true">
+
+                    <el-menu-item v-for="(list, i) in newslist" :key="i" :index="list.path">
+                        <el-icon>
+                            <setting />
+                        </el-icon>
+                        <span>{{ list.title }}</span>
+                    </el-menu-item>
+
+                </el-menu>
+
+
+            </el-aside>
+
+            <el-main>
+                <RouterView></RouterView>
+            </el-main>
+        </el-container>
+    </div>
+</template>
+
+
+<script setup>
+import { reactive } from 'vue'
+import { RouterLink, RouterView } from 'vue-router';
+const newsList = reactive([
+    { id: '001', title: '一种食物', content: '除了iPhone15之外，去年下半年发布的这些国产手机' },
+    { id: '002', title: '一种水果', content: '华为Mate60系列的强项是拍照，' },
+    { id: '003', title: '一种蔬菜', content: '国产新发布的手机激活榜，我们可以从中看出端倪来' }
+])
 </script>
-<style scoped>
-</style> 
+
+
+<style scoped></style>
