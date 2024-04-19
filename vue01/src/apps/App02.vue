@@ -1,7 +1,7 @@
 <template>
 
     <div class="common-layout">
-        <Header />
+        <Header a="sdsds"  />
         <el-container>
             <el-aside width="150px">
 
