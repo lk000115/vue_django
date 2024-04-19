@@ -3,7 +3,7 @@
     <div class="common-layout">
         <Header />
         <el-container>
-            <el-aside width="200px">
+            <el-aside width="150px">
 
                 <el-menu  class="el-menu-vertical-demo" :router="true">
 
