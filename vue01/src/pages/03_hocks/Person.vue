@@ -1,15 +1,10 @@
 <template>
 <div >
-  <Person/>
+    测试组件
 </div>
 </template>
-
 <script   setup>
-import Person from './Person.vue'
-
 
 </script>
-
-
 <style scoped>
 </style> 

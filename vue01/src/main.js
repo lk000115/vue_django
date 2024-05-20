@@ -13,7 +13,7 @@ import router from './router/index02.js'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 //导入启动的APP入口组件
-import App from './apps/App02.vue'
+import App from './pages/03_hocks/app.vue'
 
 const app = createApp(App)
 
