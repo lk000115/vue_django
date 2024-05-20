@@ -1,7 +1,6 @@
 <template>
-<div >
   <Person/>
-</div>
+
 </template>
 
 <script   setup>

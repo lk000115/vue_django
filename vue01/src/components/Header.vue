@@ -1,6 +1,6 @@
 <script setup >
-let x = defineProps(['a'])
-console.log(x.a);
+// let x = defineProps(['a'])
+// console.log(x.a);
 
 </script>
 
