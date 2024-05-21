@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 // import './style.css'
 //在main.js中可以全局引入组件
-import Header from './components/Header.vue'
+// import Header from './components/Header.vue'
 
 //导入element
 import ElementPlus from 'element-plus'
@@ -24,7 +24,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 }
 
 //全局注册组件Header
-app.component('Header',Header)
+// app.component('Header',Header)
 
 //功能注册
 app.use(router)
