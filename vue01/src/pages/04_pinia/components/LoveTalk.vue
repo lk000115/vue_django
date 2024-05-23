@@ -1,6 +1,6 @@
 <template>
     <div class="talk">
-     <button @click="getLoveTalk">获取信息</button>
+     <button @click="getLoveTalk">获取新的信息</button>
      <ul>
         <li v-for="talk in talkStore.talkList"  :key="talk.id">
               {{ talk.title }}
@@ -15,7 +15,7 @@ const talkStore = useTalkStore()
 
 function getLoveTalk(){
 
-    console.log('获取信息');
+    talkStore.getTalk()
 }
 </script>
 <style scoped>
