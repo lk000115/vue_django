@@ -6,7 +6,7 @@
     </div>
 </template>
 <script   setup>
-import Child from './Child'
+import Child from './Child.vue'
 import {ref}  from 'vue'
 let car = ref('奔驰')
 let toy = ref('')
