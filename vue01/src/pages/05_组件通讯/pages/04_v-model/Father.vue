@@ -5,7 +5,12 @@
     <h4>{{ password }}</h4>
     <input :value = "username"  @input="username = $event.target.value"  />
 
-    <AtguiguInput   />
+    <!-- <AtguiguInput  :modelValue="username" 
+     @update:modelValue = "username = $event"
+    /> -->
+    <!-- 以上写法简写如下 -->
+    <AtguiguInput v-model="username" />
+
 </div>
 </template>
 <script   setup>
