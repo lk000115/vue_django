@@ -4,6 +4,7 @@ import Event from '../pages/02_custom-event/Father.vue'
 import Bus from '../pages/03_mitt/Father.vue'
 import Model from '../pages/04_v-model/Father.vue'
 import RefChildrenParent from '../pages/06_$refs-$parent/Father.vue'
+import ProvideInject from '../pages/07_provide-inject/Father.vue'
 
 export default createRouter({
     history: createWebHistory(),
@@ -28,7 +29,10 @@ export default createRouter({
 			path: '/ref-parent',
 			component: RefChildrenParent
 		},  
-
+        {
+			path: '/provide-inject',
+			component: ProvideInject
+		},    
     ]
 
 
