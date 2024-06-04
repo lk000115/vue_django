@@ -21,6 +21,15 @@ defineExpose({house})
 
 </script>
 <style scoped>
+	.father {
+		background-color: rgb(165, 164, 164);
+		padding: 20px;
+		border-radius: 10px;
+	}
 
+	.father button {
+		margin-bottom: 10px;
+		margin-left: 10px;
+	}
 
 </style> 
