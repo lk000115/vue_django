@@ -6,6 +6,9 @@ import Model from '../pages/04_v-model/Father.vue'
 import RefChildrenParent from '../pages/06_$refs-$parent/Father.vue'
 import ProvideInject from '../pages/07_provide-inject/Father.vue'
 import Slot from '../pages/09_slot/Father.vue'
+import Slot1 from '../pages/09_slot_具名插槽/Father.vue'
+import Slot2 from '../pages/09_slot_作用域插槽/Father.vue'
+
 export default createRouter({
     history: createWebHistory(),
     routes:[
@@ -36,6 +39,14 @@ export default createRouter({
 		{
 			path: '/slot',
 			component:Slot
+		},
+		{
+			path: '/slot1',
+			component:Slot1
+		},
+		{
+			path: '/slot2',
+			component:Slot2
 		},   
     ]
 
