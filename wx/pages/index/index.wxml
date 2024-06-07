@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="menu">
+   <view class="item">
+     <image src="/static/pic/R-C.JPG" mode=""/>
+     <text>标题1</text>
+   </view>
+   <view class="item">
+     <image src="/static/pic/R-C.JPG" mode=""/>
+     <text>标题1</text>
+   </view>
+   <view class="item">
+     <image src="/static/pic/R-C.JPG" mode=""/>
+     <text>标题1</text>
+   </view>
+</view>
