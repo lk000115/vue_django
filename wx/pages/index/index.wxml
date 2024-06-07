@@ -1,4 +1,6 @@
 <!--index.wxml-->
+<view bind:tap="clickme" data-id="123">点我跳转</view>
+<view>{{motto}}</view>
 <view class="menu">
    <view class="item">
      <image src="/static/pic/R-C.JPG" mode=""/>

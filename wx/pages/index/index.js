@@ -46,4 +46,13 @@ Page({
       }
     })
   },
+  //自定义函数
+  clickme:function(e){
+    var nid = e.currentTarget.dataset.id
+    console.log("dddddd",nid);  
+  // 只能跳转到非navbar页面 
+     wx.navigateTo({
+       url: '/pages/redirect/redirect?id='+nid,
+     })
+  }
 })
