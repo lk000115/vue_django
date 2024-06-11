@@ -3,5 +3,18 @@
   "projectname": "wx",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/bind/bind",
+          "pathName": "pages/bind/bind",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

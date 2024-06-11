@@ -1,0 +1,25 @@
+<!--pages/bind/bind.wxml-->
+<text>数据绑定---</text>
+<view>数据：{{message}}</view>
+
+<button bind:tap="changeData">点击修改数据</button>
+
+<view>当前用户名：{{name}}</view>
+<view class="cs">
+<text>方式一</text>
+</view>
+<view bind:tap="getUserName">点击获取当前用户名</view>
+<text>方式二</text>
+
+<button  open-type="getUserInfo"  bindgetuserinfo="bindGetUserInfo">授权登录</button>
+
+<view bind:tap="getUserLocal">获取位置信息</view>
+
+<view>
+    <view wx:for="{{dataList}}" wx:key="index">{{index}}:  {{item}}</view>
+</view>
+
+<view  bind:tap="uploadImage">请上传图片</view>
+<view  class="content">
+    <image wx:for="{{imageList}}"  src="{{item}}" />
+</view>
