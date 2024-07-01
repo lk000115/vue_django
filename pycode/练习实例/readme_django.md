@@ -1,43 +1,34 @@
 # 知识点 Django
 
 - 格式化快捷键Ctrl + Alt + L
-
-- os.path.join(BASE_DIR,template) 
-
+- os.path.join(BASE_DIR,template)
 - 静态app中建static文件夹
   ![img.png](img.png)
 
   配置文件setting中
-  
+
   ![image-20240326115140200](C:\Users\cssd\AppData\Roaming\Typora\typora-user-images\image-20240326115140200.png)
 
-##  1.2 模板语法
+## 1.2 模板语法
 
 - 创建APP    python manage.py startapp student
-
 - 创建迁移文件 python manage.py makemigrations student
-
-- 执行迁移文件 python manage.py migrate 
-
+- 执行迁移文件 python manage.py migrate
 - 创建后台登陆的超级用户  python manage.py createsuperuser
-
 - pycharm 中可以点击菜单工具--运行manage.py任务,直接调用django命令: 可以输入startapp app01 来创建应用
-
 - ```
   ex = models.PrettyNum.objects.filter(moblie='138666').exists()
   如果数据库中存在138666的记录,这返回true否则false
-  
+
   排除自己,如果数据库还存在有相同的数据
   ex = models.PrettyNum.objects.exclude(self.instance.pk).filter(moblie='138666').exists()
-  
+
   ```
-
-- 
-
+-
 
 ## 1.3 命名空间
 
-``` 
+```
 在url路由文件中加一句 app_name = 'polls' 给app命名
 随后在html文件中可以引用 
 <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
@@ -180,8 +171,6 @@
 进阶操作
 ```
 
-
-
 - 其他操作
 
 ```
@@ -240,9 +229,22 @@
 
 ```
 
+## 1.6 django案例代码
 
+```
+1 views中代码
 
-
-
-
-
+class BootstrapModelForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(UserModelForm, self).__init__(*args, **kwargs)
+        # 给自动生成的表单增加样式form-control
+        for name,field in self.fields.items():
+            if field.widget.attrs:
+                field.widget.attrs['class'] = 'form-control'
+                field.widget.attrs['placeholder'] = field.label
+            else:
+                field.widget.attrs = {
+                    'class':'form-control',
+                'placeholder':field.label
+                }
+```
