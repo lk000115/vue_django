@@ -1,0 +1,12 @@
+/* pages/bind/bind.wxss */
+
+.content image{
+   width: 100rpx;
+   height: 100rpx;
+}
+text { 
+  margin:20rpx 0rpx;
+}
+.cs{
+  border: 1rpx solid white;
+}
