@@ -19,12 +19,12 @@
 - ```
   ex = models.PrettyNum.objects.filter(moblie='138666').exists()
   如果数据库中存在138666的记录,这返回true否则false
-
+  
   排除自己,如果数据库还存在有相同的数据
   ex = models.PrettyNum.objects.exclude(self.instance.pk).filter(moblie='138666').exists()
-
+  
   ```
--
+  -
 
 ## 1.3 命名空间
 
@@ -76,7 +76,7 @@
         # models.Tb1.objects.filter(name='seven').count()
 
         # 大于，小于
-        #
+        # models.PrettyNum.objects.all()[0:10]           #获取数据库1到10条数据,包含后不包含前 
         # models.Tb1.objects.filter(id__gt=1)              # 获取id大于1的值
         # models.Tb1.objects.filter(id__gte=1)              # 获取id大于等于1的值
         # models.Tb1.objects.filter(id__lt=10)             # 获取id小于10的值
@@ -222,10 +222,87 @@
 其他操作
 ```
 
-## 1.5 分页
+## 1.5 分页算法
 
 ```
-# 根据用户
+    # 根据用户的页码计算页码起止位置
+    """靓号列表"""
+def pretty_list(request):
+    # for i in range(100):
+    #     t = 13559900020
+    #     t = t + i
+    #     t = str(t)
+    #     models.PrettyNum.objects.create(mobile=t,price=1000,level=1,status=2)
+        # print(type(t))
+    data_dict = {}
+    search_data = request.GET.get('q',"")
+    if search_data is not None:
+        data_dict["mobile__contains"] = search_data
+    # 根据用户的页码计算页码起止位置
+    page = int(request.GET.get('page',1))
+    page_size = 10
+    start = (page - 1) * page_size
+    end = start + page_size
+    queryset = models.PrettyNum.objects.filter(**data_dict).order_by("-level")[start:end]
+    # 页码总条数
+    total_count = models.PrettyNum.objects.filter(**data_dict).count()
+    # 计算总页码
+    total_page_count,div = divmod(total_count,page_size)
+    if div:
+        total_page_count += 1
+
+    # 显示当前页的前5页,后5页
+    plus = 5
+    if total_page_count <= 2*plus +1 :
+        start_page = 1
+        end_page = total_page_count
+    else:
+        # 当前页< 5
+        if page <= plus:
+            start_page = 1
+            end_page = page + plus +1
+        else:
+            # 当前页 > 5
+            if (page + plus) > total_page_count:
+                start_page = total_page_count - 2*plus
+                end_page = total_page_count
+            else:
+                start_page = page - plus
+                end_page = page + plus +1
+
+    page_str_list = []
+    # 上一页
+    if page > 1:
+        prev = '<li ><a class="page-link" href="?page={}">上一页</a></li>'.format(page-1)
+    else:
+        prev = '<li ><a class="page-link" href="?page={}">上一页</a></li>'.format(1)
+    page_str_list.append(prev)
+    for i in range(start_page,end_page):
+        if i == page:
+            ele = '<li class="page-item active"><a class="page-link" href="?page={}">{}</a></li>'.format(i,i)
+        else:
+            ele = '<li ><a class="page-link" href="?page={}">{}</a></li>'.format(i,i)
+        page_str_list.append(ele)
+
+    # 下一页
+    if page < total_page_count:
+        prev = '<li ><a class="page-link" href="?page={}">下一页</a></li>'.format(page + 1)
+    else:
+        prev = '<li ><a class="page-link" href="?page={}">下一页</a></li>'.format(total_page_count)
+    page_str_list.append(prev)
+
+    # 必须把字符串转为安全的数据才能传给前端生成HTML
+    page_str = mark_safe(''.join(page_str_list))
+    content = {
+        'queryset': queryset,
+        "search_data": search_data,
+        "page_str": page_str
+    }
+    return render(request, 'pretty_list.html', content)
+    
+
+
+
 
 ```
 
