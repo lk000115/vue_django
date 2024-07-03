@@ -303,6 +303,18 @@ def pretty_list(request):
 
 
 
+保留原有搜索条件
+import copy
+
+query_dict =  copy.deepcopy(request.GET)
+query_dict._mutable = true
+self.query_dict = query_dict
+self.page_param = page_param
+
+self.query_dict.setlist(self.page_param,[1])
+
+page_str_list.append('<li ><a class="page-link" href="?{}">首页</a></li>'.format(self.query_dict.urlencoder()))
+
 
 ```
 
