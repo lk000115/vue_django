@@ -3,8 +3,21 @@ from django import forms
 from django.core.validators import ValidationError, RegexValidator
 
 from app01 import models
+from app01.utils.encrypt import md5
 
 
+class loginForm(forms.Form):
+    username = forms.CharField(
+        label="用户名",
+        widget=forms.TextInput(attrs={'class':'form-control'})
+    )
+    password = forms.CharField(
+        label="密码",
+        widget=forms.PasswordInput(attrs={'class':'form-control'})
+    )
+    def clean_password(self):
+        pwd = self.cleaned_data['password']
+        return md5(pwd)
 class BootstrapForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -51,12 +64,27 @@ class AdminModelForm(BootstrapForm):
     # 给新增管理员页面增加确认密码字段
     confirm_password = forms.CharField(
         label="确认密码",
-        widget=forms.PasswordInput,
+        widget=forms.PasswordInput(render_value=True),
     )
     class Meta:
         model = models.Admin
         fields = ['username', 'password', 'confirm_password']
         # 把密码输入框由文本输入框改为密码输入框
         widgets = {
-            'password': forms.PasswordInput
+            'password': forms.PasswordInput(render_value=True),
         }
+
+    # 密码加密存储到数据库
+    def clean_password(self):
+        pwd = self.cleaned_data['password']
+        return md5(pwd)
+
+    def clean_confirm_password(self):
+        # print(self.cleaned_data)
+        pwd = self.cleaned_data['password']
+        confirm = md5(self.cleaned_data['confirm_password'])
+        if pwd != confirm:
+            raise ValidationError("密码不一致")
+        return confirm
+
+
