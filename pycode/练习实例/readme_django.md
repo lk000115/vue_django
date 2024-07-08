@@ -336,4 +336,39 @@ class BootstrapModelForm(forms.ModelForm):
                     'class':'form-control',
                 'placeholder':field.label
                 }
+                
+                
+                
+2  中间件
+# 中间件
+from django.shortcuts import render, redirect
+from django.utils.deprecation import MiddlewareMixin
+
+class AuthMiddleware(MiddlewareMixin):
+    def process_request(self, request):
+        # 排除不需要登陆就能访问的页面
+        if request.path_info =='/login/':
+            return
+        # print('M登陆了')
+        info_dict = request.session.get('info')
+        if info_dict:
+            return
+        return redirect('/login/')
+
+    def process_response(self, request, response):
+        # print('M1退出了')
+        return response
+        
+ setting中加上
+ MIDDLEWARE = [
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app01.middleware.auth.AuthMiddleware',
+]
+
+views中加上
+def logout(request):
+    """注销"""
+    request.session.clear()
+    return redirect('/login/')
+
 ```
