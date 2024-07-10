@@ -12,6 +12,7 @@
 ## 1.2 模板语法
 
 - 安装Django    pip install django
+- 安装 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple  djangorestframework
 - 创建Django项目 django-admin startproject  mysite
 - 创建APP    python manage.py startapp student
 - 创建迁移文件 python manage.py makemigrations student
