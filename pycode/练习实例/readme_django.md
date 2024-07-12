@@ -26,6 +26,14 @@
   排除自己,如果数据库还存在有相同的数据
   ex = models.PrettyNum.objects.exclude(self.instance.pk).filter(moblie='138666').exists()
   
+  把数据库注册到django后台,并可以用django自带的后台管理功能来管理
+  @admin.register(Course)
+  class CourseAdmin(admin.ModelAdmin):
+      # 设置在django后台数据库展示的字段
+      list_display= ('name','introduction','teacher','price')
+      search_fields = list_display
+      list_filter = list_display
+  
   ```
   -
 
@@ -375,12 +383,109 @@ def logout(request):
     return redirect('/login/')
 
 ```
-## 2.0 django-drf
+## 2.0 django-drf 应用
 
 ```
 drf配置:  settings.py
 REST_FRAMEWORK = {
  "UNAUTHENTICATED_USER":None
 }
+
+模型:
+class Course(models.Model):
+    name = models.CharField(max_length=255,unique=True ,verbose_name="课程名称",help_text="课程名称")
+    introduction = models.TextField(verbose_name="介绍",help_text="课程介绍")
+    teacher = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name="讲师",on_delete=models.CASCADE,help_text="课程讲师")
+    price = models.DecimalField(verbose_name="价格",max_digits=6, decimal_places=2, default=0,help_text="课程价格")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="更新时间")
+
+    class Meta:
+        verbose_name = '课程名称'
+        verbose_name_plural = '课程名称'
+        ordering = ('price',)
+
+    def __str__(self):
+        return self.name
+        
+路由:
+from django.contrib import admin
+from django.urls import path,re_path,include
+from app.views import LoginView,LoginDetailView
+
+主
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('app/', include('app.urls'))
+]
+子路由:
+from django.urls import path
+from app import views
+
+urlpatterns = [
+    path('fbv/list/',views.course_list,name='course_list'),
+    path('fbv/detail/<int:pk>/',views.course_detail,name='course_detail')
+]
+
+序列化器:  app下建文件 serializers.py
+from rest_framework import serializers
+from .models import Course
+from django.contrib.auth.models import User
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User  # 应用django内置的用户库
+        fields = '__all__'
+
+class CourseSerializer(serializers.ModelSerializer):
+    #设置显示讲师的名称,.关联外键的数据库表的名称
+    teacher = serializers.ReadOnlyField(source='teacher.username')
+    class Meta:
+        model = Course
+        fields = ('id','name', 'teacher','introduction','price')
+
+
+views 视图
+
 ```
+
+- view 视图  一 drf 函数式编程  Function Based View
+
+```
+from rest_framework.decorators import api_view
+from .serializers import CourseSerializer
+@api_view(['POST','GET'])
+def course_list(request):
+    if request.method == 'GET':
+        s = CourseSerializer(instance=Course.objects.all(), many=True)
+        return Response(s.data, status=status.HTTP_200_OK)
+
+    elif request.method == 'POST':
+        # partial = True  表示部分更新.即前端只传过来了部分字段的值
+        s = CourseSerializer(data=request.data,partial=True)
+        # 对前端传过来的数据进行校验
+        if s.is_valid():
+            s.save(teacher=request.user)   # 设置teacher字段等于当前登陆的用户
+            return Response(data=s.data, status=status.HTTP_201_CREATED)
+        return Response(s.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET','PUT','DELETE'])
+def course_detail(request,pk):
+    try:
+        course = Course.objects.get(pk=pk)
+    except Course.DoesNotExist:
+        return Response(data={'message':'没有此课程信息'}, status=status.HTTP_404_NOT_FOUND)
+    else:
+        if request.method == 'GET':
+            s = CourseSerializer(instance=course, many=False)
+            return Response(s.data, status=status.HTTP_200_OK)
+        elif request.method == 'PUT':
+            s = CourseSerializer(instance=course, data=request)
+            return Response(s.data, status=status.HTTP_200_OK)
+        elif request.method == 'DELETE':
+            course.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+```
+
+- 二 类视图 
 
