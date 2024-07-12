@@ -375,3 +375,12 @@ def logout(request):
     return redirect('/login/')
 
 ```
+## 2.0 django-drf
+
+```
+drf配置:  settings.py
+REST_FRAMEWORK = {
+ "UNAUTHENTICATED_USER":None
+}
+```
+
