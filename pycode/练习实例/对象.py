@@ -14,4 +14,4 @@ class Prentice(Master):
 
 xia = Prentice()
 
-print(xia)
+print(xia.maker_cake())

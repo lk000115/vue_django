@@ -488,4 +488,20 @@ def course_detail(request,pk):
 ```
 
 - 二 类视图 
+- rest_framework全局配置
+
+```
+在 setting.py中配置认证
+REST_FRAMEWORK={
+    "UNAUTHENTICATED" : None,
+    "值": ["认证组件路径"]
+}
+
+```
+
+
+
+
+
+
 
