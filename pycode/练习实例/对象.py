@@ -14,4 +14,4 @@ class Prentice(Master):
 
 xia = Prentice()
 
-print(xia.kongfu)
+print(xia)
