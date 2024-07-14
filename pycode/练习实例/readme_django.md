@@ -632,5 +632,24 @@ class CourseViewSet(viewsets.ModelViewSet):
         
 ```
 
+##  3.0 DRF token 认证
+
+```
+from rest_framework.authtoken import views
+
+urlpatterns = [
+    path('api-token-auth/', views.obtain_auth_token),]  # 获取自动生成的token的接口
+    
+    
+# 信号机制自动生成token
+@receiver(post_save, sender=User)
+def generate_token(sender, instance=None, created=False, **kwargs):
+    """创建用户时自动生成token"""
+    if created:
+        Token.objects.create(user=instance)    
+```
+
+
+
 
 
