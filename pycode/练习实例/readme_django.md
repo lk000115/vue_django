@@ -386,10 +386,51 @@ def logout(request):
 ## 2.0 django-drf 应用
 
 ```
+1 前后端开发分离，前端发请求，后端只返回JSON字符串，前端收到后负责页面渲染
+2 DRF中后端通过请求类型来区分功能，get查询 post 新增  put修改  delete删除
+3 django中view类也具有CBV功能，
+4 DRF中APIview继承自view,
+
 drf配置:  settings.py
+INSTALLED_APPS = [
+    'app.apps.AppConfig',
+    'rest_framework.authtoken'  # drf自带认证
+    'rest_framework'
+]
 REST_FRAMEWORK = {
  "UNAUTHENTICATED_USER":None
 }
+根路由加上：
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls'))
+]
+
+# DRF全局配置
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS_CLASSES': ',rest_framework.pagination.pagination',
+    'PAGE_SIZE':50,
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer'
+    ],
+    'DEFAULT_PARSER_CLASSES':[     #解析request.data
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser'
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BaseAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
+
+
 
 模型:
 class Course(models.Model):
@@ -418,7 +459,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('app/', include('app.urls'))
 ]
-子路由:
+# 子路由:
 from django.urls import path
 from app import views
 
@@ -427,9 +468,10 @@ urlpatterns = [
     path('fbv/detail/<int:pk>/',views.course_detail,name='course_detail')
 ]
 
-序列化器:  app下建文件 serializers.py
+# 序列化器:  app下建文件 serializers.py
 from rest_framework import serializers
 from .models import Course
+#导入系统自带的管理用户表
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
