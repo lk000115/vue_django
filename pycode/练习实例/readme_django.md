@@ -539,11 +539,98 @@ REST_FRAMEWORK={
     "值": ["认证组件路径"]
 }
 
+class CourseList(APIView):
+    def get(self, request):
+        queryset = Course.objects.all()
+        s = CourseSerializer(instance=queryset, many=True)
+        return Response(s.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        s = CourseSerializer(data=request.data)
+        if s.is_valid():
+            s.save(teacher=self.request.user)
+            return Response(data=s.data, status=status.HTTP_201_CREATED)
+        return Response(s.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class CourseDetail(APIView):
+
+    @staticmethod  # 注明是静态方法
+    def get_object(pk):
+        try:
+            return Course.objects.get(pk=pk)
+        except Course.DoesNotExist:
+            return
+
+    def get(self, request, pk):
+        obj = self.get_object(pk)
+        if not obj:
+            return Response(data={'message': '没有此课程信息'}, status=status.HTTP_404_NOT_FOUND)
+        s = CourseSerializer(instance=obj)
+        return Response(s.data, status=status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        obj = self.get_object(pk)
+        if not obj:
+            return Response(data={'message': '没有此课程信息'}, status=status.HTTP_404_NOT_FOUND)
+        obj.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, pk):
+        obj = self.get_object(pk)
+        if not obj:
+            return Response(data={'message': '没有此课程信息'}, status=status.HTTP_404_NOT_FOUND)
+        s = CourseSerializer(instance=obj, data=request.data)
+        if s.is_valid():
+            s.save()
+            return Response(data=s.data, status=status.HTTP_200_OK)
+        return Response(s.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 ```
 
 
 
+- 通用类视图 Generic Class Base View
 
+```
+class GCourseList(generics.ListCreateAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(teacher=self.request.user)
+
+
+class GCourseDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+```
+
+
+
+- DRF 视图集 viewset
+
+```
+路由：
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register(prefix='viewsets', viewset=views.CourseViewSet)
+urlpatterns = [
+	path('', include(router.urls))  ]
+
+
+class CourseViewSet(viewsets.ModelViewSet):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(teacher=self.request.user)
+        
+        
+```
 
 
 
