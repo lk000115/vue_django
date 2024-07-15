@@ -9,6 +9,19 @@
 
   ![image-20240326115140200](C:\Users\cssd\AppData\Roaming\Typora\typora-user-images\image-20240326115140200.png)
 
+## 1.1 命令行创建python虚拟环境
+
+```
+1 执行 python -m venv venv01  创建 venv01的虚拟环境
+
+2 执行venv01\scripts\activate  激活虚拟环境
+3 虚拟环境提示符下(venv01)执行  pip list 查看安装的应用
+4 虚拟环境提示符下(venv01)执行 pip install django 安装应用
+5 在虚拟环境提示符下(venv01)执行 deactivate 退出虚拟环境
+```
+
+
+
 ## 1.2 模板语法
 
 - 安装Django    pip install django
@@ -522,8 +535,11 @@ def course_detail(request,pk):
             s = CourseSerializer(instance=course, many=False)
             return Response(s.data, status=status.HTTP_200_OK)
         elif request.method == 'PUT':
-            s = CourseSerializer(instance=course, data=request)
-            return Response(s.data, status=status.HTTP_200_OK)
+            s = CourseSerializer(instance=course, data=request.data,partial=True)
+            if s.is_valid():
+                s.save()
+                return Response(s.data, status=status.HTTP_200_OK)
+            return Response(s.errors, status=status.HTTP_400_BAD_REQUEST)
         elif request.method == 'DELETE':
             course.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
