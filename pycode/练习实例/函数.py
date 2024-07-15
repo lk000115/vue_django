@@ -11,10 +11,16 @@ fn2(3)
 # 可变参数
 def fn3(*args):
     print(f"可变参数是一个元祖:  =  {args}")
+x = (6,7,8)    
 fn3(1,2,3)
-
+fn3(*x)
 # 关键字参数
 def fn4(name, age, **kw):
+    print("以下是关键字参数-----")
     print(f"'name:', {name}, 'age:', {age}, 'other:',关键字参数 = {kw} " )
-
-fn4("zhansan",18,a=2,b=4)
+    print(type(kw))
+x={"a":2, "b":8}
+# 调用方式1
+fn4("调用方式1--- ",18,**x)
+# 调用方式2
+fn4("调用方式2--- ",18,a=22,b=88)
