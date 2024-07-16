@@ -11,16 +11,14 @@
 
 ## 1.1 命令行创建python虚拟环境
 
-```
 1 执行 python -m venv venv01  创建 venv01的虚拟环境
 
 2 执行venv01\scripts\activate  激活虚拟环境
 3 虚拟环境提示符下(venv01)执行  pip list 查看安装的应用
 4 虚拟环境提示符下(venv01)执行 pip install django 安装应用
 5 在虚拟环境提示符下(venv01)执行 deactivate 退出虚拟环境
-```
 
-
+6 pip freeze > requirements.txt
 
 ## 1.2 模板语法
 
@@ -35,10 +33,10 @@
 - ```
   ex = models.PrettyNum.objects.filter(moblie='138666').exists()
   如果数据库中存在138666的记录,这返回true否则false
-  
+
   排除自己,如果数据库还存在有相同的数据
   ex = models.PrettyNum.objects.exclude(self.instance.pk).filter(moblie='138666').exists()
-  
+
   把数据库注册到django后台,并可以用django自带的后台管理功能来管理
   @admin.register(Course)
   class CourseAdmin(admin.ModelAdmin):
@@ -46,9 +44,8 @@
       list_display= ('name','introduction','teacher','price')
       search_fields = list_display
       list_filter = list_display
-  
+
   ```
-  -
 
 ## 1.3 命名空间
 
@@ -323,7 +320,7 @@ def pretty_list(request):
         "page_str": page_str
     }
     return render(request, 'pretty_list.html', content)
-    
+  
 
 
 
@@ -360,9 +357,9 @@ class BootstrapModelForm(forms.ModelForm):
                     'class':'form-control',
                 'placeholder':field.label
                 }
-                
-                
-                
+              
+              
+              
 2  中间件
 # 中间件
 from django.shortcuts import render, redirect
@@ -382,7 +379,7 @@ class AuthMiddleware(MiddlewareMixin):
     def process_response(self, request, response):
         # print('M1退出了')
         return response
-        
+      
  setting中加上
  MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -396,6 +393,7 @@ def logout(request):
     return redirect('/login/')
 
 ```
+
 ## 2.0 django-drf 应用
 
 ```
@@ -461,7 +459,7 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
-        
+      
 路由:
 from django.contrib import admin
 from django.urls import path,re_path,include
@@ -545,7 +543,7 @@ def course_detail(request,pk):
             return Response(status=status.HTTP_204_NO_CONTENT)
 ```
 
-- 二 类视图 
+- 二 类视图
 - rest_framework全局配置
 
 ```
@@ -605,8 +603,6 @@ class CourseDetail(APIView):
 
 ```
 
-
-
 - 通用类视图 Generic Class Base View
 
 ```
@@ -622,8 +618,6 @@ class GCourseDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 ```
-
-
 
 - DRF 视图集 viewset
 
@@ -644,11 +638,11 @@ class CourseViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(teacher=self.request.user)
-        
-        
+      
+      
 ```
 
-##  3.0 DRF token 认证
+## 3.0 DRF token 认证
 
 ```
 from rest_framework.authtoken import views
@@ -656,7 +650,7 @@ from rest_framework.authtoken import views
 urlpatterns = [
     path('api-token-auth/', views.obtain_auth_token),   #获取token的接口
     ]
-    
+  
  
 # 在views中编写函数,当用户创建时自动生成token 
 # 信号机制自动生成token
@@ -664,10 +658,5 @@ urlpatterns = [
 def generate_token(sender, instance=None, created=False, **kwargs):
     """创建用户时自动生成token"""
     if created:
-        Token.objects.create(user=instance)    
+        Token.objects.create(user=instance)  
 ```
-
-
-
-
-
