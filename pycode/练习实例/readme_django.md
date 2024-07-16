@@ -18,7 +18,41 @@
 4 虚拟环境提示符下(venv01)执行 pip install django 安装应用
 5 在虚拟环境提示符下(venv01)执行 deactivate 退出虚拟环境
 
-6 pip freeze > requirements.txt
+6  pip freeze > requirements.txt  
+
+```
+uwsgi.ini 配置文件和settings.py处于同一目录
+
+[uwsgi]
+http=127.0.0.1:8000    #如果用nginx反向代理 http改为 socket
+chdr=D:\code\py\pycode\drf_xm
+wsgi-file = drf_xm\wsgi.py
+process=4
+threads=2
+pidfile=uwsgi.pid
+daemonize=uwsgi.log
+master=True
+########
+启动uwsgi
+cd 到 uWSUI配置文件所在目录
+uwsgi --ini uwsgi.ini
+
+停止uwsgi
+uwsgi --stop uwsgi.pid
+**
+nginx 配置文件
+location / {
+    uwsgi_pass 127.0.0.1:8000;
+    include  /路径/uwsgi_params;
+
+}
+
+
+```
+
+
+
+
 
 ## 1.2 模板语法
 
@@ -33,10 +67,10 @@
 - ```
   ex = models.PrettyNum.objects.filter(moblie='138666').exists()
   如果数据库中存在138666的记录,这返回true否则false
-
+  
   排除自己,如果数据库还存在有相同的数据
   ex = models.PrettyNum.objects.exclude(self.instance.pk).filter(moblie='138666').exists()
-
+  
   把数据库注册到django后台,并可以用django自带的后台管理功能来管理
   @admin.register(Course)
   class CourseAdmin(admin.ModelAdmin):
@@ -44,7 +78,7 @@
       list_display= ('name','introduction','teacher','price')
       search_fields = list_display
       list_filter = list_display
-
+  
   ```
 
 ## 1.3 命名空间
