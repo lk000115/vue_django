@@ -654,9 +654,11 @@ class CourseViewSet(viewsets.ModelViewSet):
 from rest_framework.authtoken import views
 
 urlpatterns = [
-    path('api-token-auth/', views.obtain_auth_token),]  # 获取自动生成的token的接口
+    path('api-token-auth/', views.obtain_auth_token),   #获取token的接口
+    ]
     
-    
+ 
+# 在views中编写函数,当用户创建时自动生成token 
 # 信号机制自动生成token
 @receiver(post_save, sender=User)
 def generate_token(sender, instance=None, created=False, **kwargs):
