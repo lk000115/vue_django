@@ -18,7 +18,13 @@
 4 虚拟环境提示符下(venv01)执行 pip install django 安装应用
 5 在虚拟环境提示符下(venv01)执行 deactivate 退出虚拟环境
 
-6  pip freeze > requirements.txt  
+6 django-admin startproject mysite  新建项目
+
+7 python manage.py startapp polls  新建app
+
+8 python manage.py runserver  启动django项目   python manage.py runserver  192.168.1.168:8080  指定ip和端口
+
+9  pip freeze > requirements.txt   把项目虚拟环境安装的所有应用清单名存到文件中  
 
 ```
 uwsgi.ini 配置文件和settings.py处于同一目录
@@ -694,3 +700,47 @@ def generate_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)  
 ```
+
+## 4.0  虚拟环境迁移
+
+```
+1 修改`pyvenv.cfg`文件里的`home`和`version`
+   venv目录下的配置文件pyvenv.cfg
+   home = C:\Python\Python38 改为当前电脑的地址
+   
+2 Scripts\activate`以及`Scripts\activate.bat两个文件中的
+VIRTUAL_ENV=F:\study\code\student_xm\drf_xm\venv
+改为当前电脑的地址
+
+3 如果还报错,把venv\Lib\site-packages\下的pip的两个相关文件夹直接删除
+再激活虚拟环境,重新安装pip:
+python -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple  
+如果报错,执行:
+python -m ensurepip
+easy_install pip
+后再重新执行一次pip安装
+
+4 跨域
+1 安装依赖 pip install django-cors-headers
+2 setting.py中
+ 记得修改允许访问的IP
+ALLOWED_HOSTS = ['*'] # 允许全部IP访问项目
+# setting.py 修改以下内容
+INSTALLED_APPS = [
+    'corsheaders', # 注册app corsheaders
+    'app01',# 你的app
+]
+
+3 # 在 setting.py 末尾添加以下设置
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = ('*')
+
+国际化- LANGUAGE_CODE = 'zh-hans'        # 'en-us' 英语
+  TIME_ZONE = 'Asia/Shanghai'
+
+
+```
+
+
+
