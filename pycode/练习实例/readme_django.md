@@ -52,7 +52,36 @@ location / {
     include  /路径/uwsgi_params;
 
 }
+以下是nginx+waitress配置
+nginx 为了反向代理waitress，做如下配置
+location / {
+            proxy_set_header Host $host;
+            proxy_pass http://127.0.0.1:8001;
+        }
+         location /static {
+            alias D:\code\py\pycode\drf_xm\static;
+        }
 
+waitress配置
+在项目根目录创建run.py
+from waitress import serve
+from drf_xm.wsgi import application
+if __name__ == "__main__":
+    serve(application, host='127.0.0.1', port=8001, threads=4)
+
+
+settings.py
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+根urls
+urlpatterns = [
+    path('api-token-auth/', views.obtain_auth_token),  # 获取自动生成的token的接口
+    path('admin/', admin.site.urls),
+    path('app/', include('app.urls'))
+
+] + static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
 
 ```
 
