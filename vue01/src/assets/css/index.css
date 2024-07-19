@@ -1,6 +1,6 @@
 /* 存储颜色,以后可以调用 */
 :root {
-    --background-color: CornflowerBlue;
+    --background-color: red;
 
 }
 .footer{
@@ -36,8 +36,8 @@
 
 .selected {
 
-   color:var(--background-color)
-
+   /* color:var(--background-color) */
+  color:red
 }
 
 
