@@ -1,0 +1,20 @@
+/* 存储颜色,以后可以调用 */
+:root {
+    --background-color: CornflowerBlue;
+
+}
+
+
+
+
+
+
+/* 动态添加样式.还需在路由文件中设置 */
+
+.selected {
+
+   color:var(--background-color)
+
+}
+
+
