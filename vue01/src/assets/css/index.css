@@ -1,6 +1,6 @@
 /* 存储颜色,以后可以调用 */
 :root {
-    --background-color: red;
+    --background-color: #007cdc;
 
 }
 .footer{
@@ -32,12 +32,13 @@
    list-style-type:none; 
 }
 
-/* 动态添加样式.还需在路由文件中设置 */
+/* 动态添加样式.还需在路由文件中设
+置,必须把active类加到ul li下 */
 
-.selected {
+.footer-list ul li .active {
 
-   /* color:var(--background-color) */
-  color:red
+   color:var(--background-color)
+
 }
 
 

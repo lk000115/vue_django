@@ -25,7 +25,7 @@ const router = createRouter({
         },
   
      ],
-     linkActiveClass:'selected',
+     linkActiveClass:'active',
   
   })
   

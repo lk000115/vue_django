@@ -5,7 +5,7 @@
         <div class="footer-list">
             <ul>
                 <li v-for="(v,i) in footerlist" :key="i">
-                    <router-link :to="v.path">
+                    <router-link :to="v.path" >
                         <i class="iconfont" :class="v.icon" ></i>
                         <p>{{ v.title }}</p>
                     </router-link>
