@@ -1,7 +1,7 @@
 <template>
 <div >
     首页
-
+    
     <RouterView/>
     <Navbottom/>
 </div>
