@@ -4,17 +4,11 @@
     <div class="footer-seat">
         <div class="footer-list">
             <ul>
-                <li>
-                    <i class="iconfont icon-detail"></i>
-                    <p>详情</p>
-                </li>
-                <li>
-                    <i class="iconfont icon-appstore"></i>
-                    <p>列表</p>
-                </li>
-                <li>
-                    <i class="iconfont icon-home1"></i>
-                    <p>首页</p>
+                <li v-for="(v,i) in footerlist" :key="i">
+                    <router-link :to="v.path">
+                        <i class="iconfont" :class="v.icon" ></i>
+                        <p>{{ v.title }}</p>
+                    </router-link>
                 </li>
             </ul> 
         </div>
@@ -24,6 +18,12 @@
 </div>
 </template>
 <script   setup>
+import{ref} from 'vue'
+let footerlist = ref([
+  {title:'详情',icon:'icon-detail',path:'/detail'},
+  {title:'列表',icon:'icon-appstore',path:'/list'},
+  {title:'首页',icon:'icon-home1',path:'/index'}
+])
 
 </script>
 <style scoped>

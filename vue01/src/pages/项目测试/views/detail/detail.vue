@@ -1,6 +1,6 @@
 <template>
 <div >
-    home页面
+    detail页面
 </div>
 </template>
 <script   setup>
