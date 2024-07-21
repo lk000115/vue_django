@@ -28,10 +28,6 @@
    align-items:center ;
    text-align:center;
 }
-.footer-list ul li{
-   list-style-type:none; 
-}
-
 /* 动态添加样式.还需在路由文件中设
 置,必须把active类加到ul li下 */
 
