@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "axios": "^1.7.0",
     "element-plus": "^2.6.3",
     "mitt": "^3.0.1",
