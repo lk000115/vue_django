@@ -1,29 +1,43 @@
-{  
-
-   "user":[
-     {
-       "name":"zhansan",
-       "age":19,
-       "pwd":"123456"
-     },
-     {
-        "name":"历史",
-        "age":22,
-        "pwd":"123456"
-      },
-      {
-        "name":"s002",
-        "age":19,
-        "pwd":"123456"
-      },
-      {
-        "name":"赵六",
-        "age":19,
-        "pwd":"123456"
-      }
-
-   ]
-
-
-
+{
+  "user": [
+    {
+      "userName": "zhansan",
+      "age": 19,
+      "userPwd": "123456",
+      "id": "404c"
+    },
+    {
+      "userName": "历史",
+      "age": 22,
+      "userPwd": "123456",
+      "id": "4ae1"
+    },
+    {
+      "userName": "s002",
+      "age": 19,
+      "userPwd": "123456",
+      "id": "e969"
+    },
+    {
+      "userName": "赵六",
+      "age": 19,
+      "userPwd": "123456",
+      "id": "352c"
+    },
+    {
+      "id": "9749",
+      "userName": "s008",
+      "userPwd": "123456"
+    },
+    {
+      "id": "7fca",
+      "userName": "s002",
+      "userPwd": "123456"
+    },
+    {
+      "id": "f796",
+      "userName": "s002",
+      "userPwd": "12345+"
+    }
+  ]
 }
