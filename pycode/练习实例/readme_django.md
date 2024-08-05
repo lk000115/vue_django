@@ -470,6 +470,7 @@ def logout(request):
 2 DRF中后端通过请求类型来区分功能，get查询 post 新增  put修改  delete删除
 3 django中view类也具有CBV功能，
 4 DRF中APIview继承自view,
+5 pip install djangorestframework  安装 DRF
 
 drf配置:  settings.py
 INSTALLED_APPS = [
