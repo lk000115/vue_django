@@ -772,5 +772,29 @@ CORS_ALLOW_HEADERS = ('*')
 
 ```
 
+##  5.0 元类
+
+```
+创建类的方式2
+Foo = type('Foo',(object),{"v1":123,"func":lambda self:999})
+
+
+class  Foo(object,metaclass=type):  默认由type创建  
+	def __init__(self);
+		pass    # 2 初始化类数据
+		
+    def __new__(self):
+    	paa  # 1 创建类,先于__init__方法执行
+    	
+    	
+class  MyType(type)
+	def __new__(cls,name,base,attrs)
+	# 此处可以增加代码在类创建前进行修改类属性
+	Foo = super().__new__(cls,name,base,attrs)
+	return Foo
+```
+
+
+
 
 
