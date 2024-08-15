@@ -26,6 +26,8 @@
 
 9  pip freeze > requirements.txt   把项目虚拟环境安装的所有应用清单名存到文件中  
 
+10 python manage.py collectstatic  根目录下执行此命令,会把静态文件汇总归集到一个目录
+
 ```
 uwsgi.ini 配置文件和settings.py处于同一目录
 

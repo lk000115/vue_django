@@ -12,7 +12,7 @@
 import axios  from 'axios'
 
 axios.interceptors.request.use((config)=>{
-    config.baseURL = 'http://localhost:3000'  
+    config.baseURL = 'http://localhost:8000'  
     return config
 })
 
@@ -32,12 +32,12 @@ async function text() {
     // console.log("aaa");
 //    let res = await axios.get('/user')
    let res = await axios({
-     url:'/user',
+     url:'/api/register/',
      method:'POST',
      data:{
-        "userName": "zhanjun",
-        "age": 20,
-        "userPwd": "123",
+        "userName": "s008",
+        "userPwd": 123,
+        "confirm_password": 123,
      }
    })
    console.log(res );
