@@ -35,12 +35,12 @@ async function text() {
      url:'/api/register/',
      method:'POST',
      data:{
-        "userName": "s008",
+        "userName": "s009",
         "userPwd": '123',
-        "confirm_password":'123',
+        "confirm_password":'1234',
      }
    })
-   console.log(res );
+   console.log(res);
 }
 
 
