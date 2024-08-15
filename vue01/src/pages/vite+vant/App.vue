@@ -36,8 +36,8 @@ async function text() {
      method:'POST',
      data:{
         "userName": "s008",
-        "userPwd": 123,
-        "confirm_password": 123,
+        "userPwd": '123',
+        "confirm_password":'123',
      }
    })
    console.log(res );

@@ -762,8 +762,12 @@ INSTALLED_APPS = [
     'corsheaders', # 注册app corsheaders
     'app01',# 你的app
 ]
+3 添加中间件 
+MIDDLEWARE = [
+     'corsheaders.middleware.CorsMiddleware',
+]
 
-3 # 在 setting.py 末尾添加以下设置
+4 # 在 setting.py 末尾添加以下设置
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = ('*')
