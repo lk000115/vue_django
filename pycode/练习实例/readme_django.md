@@ -770,10 +770,15 @@ MIDDLEWARE = [
 4 # 在 setting.py 末尾添加以下设置
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
+# 允许跨域访问的白名单
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)
+
 CORS_ALLOW_HEADERS = ('*')
 
 国际化- LANGUAGE_CODE = 'zh-hans'        # 'en-us' 英语
-  TIME_ZONE = 'Asia/Shanghai'
+       TIME_ZONE = 'Asia/Shanghai'
 
 
 ```
