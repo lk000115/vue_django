@@ -714,6 +714,23 @@ class CourseViewSet(viewsets.ModelViewSet):
       
 ```
 
+### 2.1  序列化
+
+```
+ 序列化和反序列化
+ 1 序列化
+   get请求中.把数据库查询到的queryset对象,传给序列化器的Instance变量,在调用序列化器的data方法时,序列化器内部再把
+   queryset对象转为json对象,返回给前端
+ 2 反序列化
+   请求体request.data的数据传给序列化器的data变量,在调用序列化器的save方法时,把请求体的data数据保存到数据库
+   再调用序列化器的data方法.把数据库库保存的数据转为JSON数据传给instance,返回给前端
+
+```
+
+
+
+
+
 ## 3.0 DRF token 认证
 
 ```
