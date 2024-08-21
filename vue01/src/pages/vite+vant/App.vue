@@ -32,12 +32,11 @@ async function text() {
     // console.log("aaa");
 //    let res = await axios.get('/user')
    let res = await axios({
-     url:'/api/register/',
+     url:'/api/login/',
      method:'POST',
      data:{
-        "userName": "s008",
+        "userName": "sd08",
         "userPwd": '123',
-        "confirm_password":'123',
      }
    })
    console.log(res);

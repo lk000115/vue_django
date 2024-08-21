@@ -22,10 +22,12 @@ import {login} from '../../api/user.js'
 function useSubmit(user){
     const onSubmit = async ()=>{
       const res = await login(user);
-      if (res.statusText === 'ok'){
-          console.log("用户登陆成功");
+    //   console.log(res.data);
+      
+      if (res.data.code === 200){
+          console.log("用户登陆成功-----",res.data);
       }else{
-          console.log("用户名或密码错误");
+          console.log("用户名或密码错误----",res.data);
       }
 
     }
