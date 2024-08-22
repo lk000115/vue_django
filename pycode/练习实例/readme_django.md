@@ -54,6 +54,13 @@ location / {
     include  /路径/uwsgi_params;
 
 }
+
+
+```
+
+### 1.1.1  nginx+waitress配置
+
+```
 以下是nginx+waitress配置
 nginx 为了反向代理waitress，做如下配置
 location / {
@@ -84,8 +91,9 @@ urlpatterns = [
     path('app/', include('app.urls'))
 
 ] + static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
-
 ```
+
+
 
 
 

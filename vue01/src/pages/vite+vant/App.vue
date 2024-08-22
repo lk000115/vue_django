@@ -1,6 +1,6 @@
 <template>
 <div >
-    <h3>测试axios</h3>
+    <h3><i class="iconfont icon-yanfagongju"></i>测试axios</h3>
     <button @click="text">发送请求</button>    
 
     <router-view/>
