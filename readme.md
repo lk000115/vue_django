@@ -26,15 +26,8 @@ python -m venv venv01    #
 -
 - 导入iconfont字体库
 
-  ```
-   1 把icofont上选中的图片添加到购物车,再添加到自己的项目中
-   2 到资源管理,我的项目中.把项目资源下载到本地
-   3 把下载的图标文件解压复制到static文件中,
-   4 在vue中的main.js文件中,导入 import '@/assets/font/iconfont.css'
-   5  挑选相应图标并获取类名，应用于页面：<i class="iconfont icon-xxx"></i>
-
-
-
-
-  ```
--
+  1 把icofont上选中的图片添加到购物车,再添加到自己的项目中
+  2 到资源管理,我的项目中.把项目资源下载到本地
+  3 把下载的图标文件解压复制到static文件中,
+  4 在vue中的main.js文件中,导入 import '@/assets/font/iconfont.css'
+  5  挑选相应图标并获取类名，应用于页面：<i class="iconfont icon-xxx"></i>
