@@ -777,6 +777,13 @@ python -m ensurepip
 easy_install pip
 后再重新执行一次pip安装
 
+迁移方法2: 
+  导出当前环境中的包  
+    pip freeze > requirements.txt
+  在目标机器上创建新环境并安装包
+    pip install -r requirements.txt
+
+
 4 跨域
 1 安装依赖 pip install django-cors-headers
 2 setting.py中
