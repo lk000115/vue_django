@@ -113,8 +113,8 @@ Nginx的location匹配规则如下：
    }
  
  nginx 解决跨域
- location  ^~ /api {
-   rewrite ^/api/(.*)$  $1 break;
+ location  ^~ /api/ {
+   rewrite ^/api(.*)$  $1 break;
    proxy_pass http://127.0.0.1:8080;  
  }
  
