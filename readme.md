@@ -31,3 +31,10 @@ python -m venv venv01    #
   3 把下载的图标文件解压复制到static文件中,
   4 在vue中的main.js文件中,导入 import '@/assets/font/iconfont.css'
   5  挑选相应图标并获取类名，应用于页面：<i class="iconfont icon-xxx"></i>
+
+- linx命令
+```
+  useradd   es     -M -s /sbin/nologin   创建用户
+  ps -ef | grep  nginx   显示nginx的进程  
+```
+  

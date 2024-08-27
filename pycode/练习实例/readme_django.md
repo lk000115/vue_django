@@ -62,15 +62,57 @@ location / {
 
 ```
 以下是nginx+waitress配置
+启动nginx命令  start nginx
+             nginx -s reload  重新加载  
 nginx 为了反向代理waitress，做如下配置
-location / {
-            proxy_set_header Host $host;
-            proxy_pass http://127.0.0.1:8001;
-        }
-         location /static {
-            alias D:\code\py\pycode\drf_xm\static;
+
+charset utf-8;    # 设置显示中文字符
+server {
+        listen       80;
+        server_name  localhost;
+
+        location / {
+                    proxy_set_header Host $host;
+                    proxy_pass http://127.0.0.1:8001;
+                }
+        location /static {
+                    alias D:\code\py\pycode\drf_xm\static;      
+                }
+        
+        #error_page  404              /404.html;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }        
+
+server {
+        listen       88;
+        server_name  localhost;
+
+        location / {
+            root   html;          # 网站根目录,默认显示nginx下html目录的index.html
+            index  index.html index.htm;
         }
 
+        #error_page  404              /404.html;
+
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+        
+Nginx的location匹配规则如下：
+   精确匹配 =
+   前缀匹配 ^~ /bk   
+   正则    ~* \.(gif|jpg|jpeg) {}
+   匹配所有 /
+   vue工程匹配  
+   location / {
+      root  /www;
+      try_files  $uri  $uri/  $uri/index.html  $uri.html  /index.html;
+   }
+   
+   
 waitress配置
 在项目根目录创建run.py
 from waitress import serve
