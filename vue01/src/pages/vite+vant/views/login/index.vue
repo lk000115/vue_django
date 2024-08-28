@@ -18,6 +18,7 @@
 <script setup>
 import {reactive,toRefs} from 'vue'
 import {login} from '../../api/user.js'
+import{Toast} from 'vant'
 
 function useSubmit(user){
     const onSubmit = async ()=>{
@@ -25,9 +26,11 @@ function useSubmit(user){
     //   console.log(res.data);
       
       if (res.data.code === 200){
-          console.log("用户登陆成功-----",res.data);
+        //   console.log("用户登陆成功-----",res.data);
+        Toast.success('用户登陆成功');
       }else{
-          console.log("用户名或密码错误----",res.data);
+        //   console.log("用户名或密码错误----",res.data);
+        Toast.success('用户登陆失败');
       }
 
     }
