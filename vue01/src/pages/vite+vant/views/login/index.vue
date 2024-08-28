@@ -30,7 +30,7 @@ function useSubmit(user){
         Toast.success('用户登陆成功');
       }else{
         //   console.log("用户名或密码错误----",res.data);
-        Toast.success('用户登陆失败');
+        Toast.fail('用户登陆失败');
       }
 
     }
