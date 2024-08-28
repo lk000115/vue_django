@@ -28,6 +28,12 @@
 
 10 python manage.py collectstatic  根目录下执行此命令,会把静态文件汇总归集到一个目录
 
+11 打开Django项目中的settings文件，将DEBUG设置为False，ALLOWED_HOSTS = [’*’]，
+
+12 在settings.py里添加STATIC_ROOT配置，指定收集静态文件路径
+
+​      STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 ```
 uwsgi.ini 配置文件和settings.py处于同一目录
 
