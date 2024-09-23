@@ -2,7 +2,7 @@
 <div >
     <h3><i class="iconfont icon-yanfagongju"></i>测试axios</h3>
     <button @click="text">发送请求</button>    
-
+    <div class="box"></div>
     <router-view/>
 </div>
 </template>
@@ -47,6 +47,10 @@ async function text() {
 
 
 <style scoped>
-
+.box{
+   width: 750px;
+   height: 300px;
+   background-color: blue;
+}
 
 </style> 
