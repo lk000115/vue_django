@@ -3,8 +3,14 @@
         <van-nav-bar title="登陆" class="page-nav-bar" />
         <van-form @submit="onSubmit">
             <van-cell-group inset>
-                <van-field name="username" placeholder="用户名" left-icon="manager" v-model="user.userName" />
-                <van-field type="password" name="userPwd" placeholder="密码" left-icon="lock" v-model="user.userPwd" />
+                <van-field name="username" placeholder="用户名" left-icon="manager" 
+                v-model="user.userName" 
+                :rules="userFormRules.userName"
+                />
+                <van-field type="password" name="userPwd" placeholder="密码" left-icon="lock"
+                 v-model="user.userPwd" 
+                 :rules="userFormRules.userPwd"
+                 />
             </van-cell-group>
             <div style="margin: 16px;">
                 <van-button  block type="primary" native-type="submit">
@@ -33,9 +39,16 @@ function useSubmit(user){
         showFailToast('用户登陆失败');
       }
 
-    }
+    };
+
+    const userFormRules={
+        userName:[{required:true,message:"请输入用户名"}],
+        userPwd:[{required:true , message:"请输入密码"},{pattern:/^\d{6}$/,message:"密码格式错误"}]
+    };
+
     return {
         onSubmit,
+        userFormRules
     }
 
 }
@@ -46,7 +59,9 @@ const user = reactive({
     userPwd:''
 })
  
-const {onSubmit} = useSubmit(user)
+const {onSubmit,userFormRules} = useSubmit(user)
+// 定义表单输入框校验
+
 
 </script>
 <style scoped></style>
