@@ -37,4 +37,32 @@ python -m venv venv01    #
   useradd   es     -M -s /sbin/nologin   创建用户
   ps -ef | grep  nginx   显示nginx的进程  
 ```
+ 
+## stable diffusion  
+
+- 正向提示词
+high quality 高品质
+
+masterpiece 杰出
+
+best quality 最好品质
+
+photography 摄影作品
+
+ultra highres 超高分辨率
+
+RAW photo 原始照片
+
+- 反向提示词
   
+worst quality
+
+bad quality
+
+low quality
+
+normal quality
+
+lowres
+
+normal quality
