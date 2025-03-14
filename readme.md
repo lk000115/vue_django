@@ -53,7 +53,7 @@ ultra highres 超高分辨率
 
 RAW photo 原始照片
 
-extreme detail 极端细节
+extreme detail 极致的细节
 
 - 反向提示词
   
