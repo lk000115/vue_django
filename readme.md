@@ -38,7 +38,7 @@ python -m venv venv01    #
   ps -ef | grep  nginx   显示nginx的进程  
 ```
  
-## stable diffusion  
+## stable diffusion  AI绘画
 
 - 正向提示词
 high quality 高品质
@@ -66,3 +66,12 @@ normal quality
 lowres
 
 normal quality
+
+ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),
+
+一 文生图
+1 迭代步数 建议20-30,就像一块模糊的玻璃,擦拭的次数越多,越清晰
+2 提示词引导系数 7-10,引导系数越大,AI发挥的空间就越大
+二 图生图
+1 重绘幅度:建议0.5-0.75 此值越大,AI重绘的想象空间就越大,和原图越不像,越小和原图越像
+2 
