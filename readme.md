@@ -31,16 +31,21 @@ python -m venv venv01    #
   3 把下载的图标文件解压复制到static文件中,
   4 在vue中的main.js文件中,导入 import '@/assets/font/iconfont.css'
   5  挑选相应图标并获取类名，应用于页面：<i class="iconfont icon-xxx"></i>
-
 - linux命令
+
 ```
   useradd   es     -M -s /sbin/nologin   创建用户
   ps -ef | grep  nginx   显示nginx的进程  
 ```
- 
+
 ## stable diffusion  AI绘画
 
-- 正向提示词
+模型：基础底模  基础算法1.5   基础算法XL   基础算法F.1
+
+
+1 正向提示词
+
+基本结构： 人物+场景+环境+氛围
 high quality 高品质
 
 masterpiece 杰出
@@ -55,8 +60,8 @@ RAW photo 原始照片
 
 extreme detail 极致的细节
 
-- 反向提示词
-  
+2 反向提示词
+
 worst quality
 
 bad quality
@@ -76,4 +81,4 @@ ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),
 2 提示词引导系数 7-10,引导系数越大,AI发挥的空间就越大
 二 图生图
 1 重绘幅度:建议0.5-0.75 此值越大,AI重绘的想象空间就越大,和原图越不像,越小和原图越像
-2 
+2
