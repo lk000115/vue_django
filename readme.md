@@ -38,6 +38,8 @@ python -m venv venv01    #
   ps -ef | grep  nginx   显示nginx的进程  
 ```
 
+ai辅助代码插件  marscode  ai
+
 ## stable diffusion  AI绘画
 
 模型：基础底模  基础算法1.5   基础算法XL   基础算法F.1
@@ -133,3 +135,9 @@ controlnet: D:/stable-diffusion-webui/extensions/sd-webui-controlnet/models
 保存并关闭extra_model_paths.yaml文件，然后重新启动ComfyUI。此时，你应该可以在ComfyUI中看到从WebUI共享过来的所有模型
 
 3通过以上步骤，你可以轻松地在ComfyUI中共享WebUI的模型，从而节省存储空间并提高效率
+
+##  comfyui提示词翻译插件安装
+
+进入comfyui插件目录 /ComfyUI/custom_nodes/
+执行 git clone https://github.com/juehackr/comfyui_fk_server.git
+重启 ComfyUI
