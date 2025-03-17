@@ -38,7 +38,7 @@ python -m venv venv01    #
   ps -ef | grep  nginx   显示nginx的进程  
 ```
 
-ai辅助代码插件  marscode  ai
+ai辅助代码插件  marscode ai
 
 ## stable diffusion  AI绘画
 
