@@ -141,3 +141,8 @@ controlnet: D:/stable-diffusion-webui/extensions/sd-webui-controlnet/models
 进入comfyui插件目录 /ComfyUI/custom_nodes/
 执行 git clone https://github.com/juehackr/comfyui_fk_server.git
 重启 ComfyUI
+
+baidu翻译api密钥,
+https://api.fanyi.baidu.com/manage/developer
+
+20250317002305921    HIpC_oaYUR1WoNCSxbcU
