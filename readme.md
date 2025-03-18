@@ -38,12 +38,11 @@ python -m venv venv01    #
   ps -ef | grep  nginx   显示nginx的进程  
 ```
 
-ai辅助代码插件  marscode ai
+ai辅助代码插件  marscode ai          markdownlint
 
 ## stable diffusion  AI绘画
 
 模型：基础底模  基础算法1.5   基础算法XL   基础算法F.1
-
 
 1 正向提示词
 
@@ -86,7 +85,6 @@ ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),
 二 图生图
 1 重绘幅度:建议0.5-0.75 此值越大,AI重绘的想象空间就越大,和原图越不像,越小和原图越像
 2
-
 
 ## ComfyUI共享WebUI模型
 
@@ -138,7 +136,7 @@ controlnet: D:/stable-diffusion-webui/extensions/sd-webui-controlnet/models
 
 3通过以上步骤，你可以轻松地在ComfyUI中共享WebUI的模型，从而节省存储空间并提高效率
 
-##  comfyui提示词翻译插件安装
+## comfyui提示词翻译插件安装
 
 进入comfyui插件目录 /ComfyUI/custom_nodes/
 执行 git clone https://github.com/juehackr/comfyui_fk_server.git
@@ -150,12 +148,12 @@ https://api.fanyi.baidu.com/manage/developer
 
 国外AI网站: civitai
 
-
-
 ## comfyui流程节点逻辑
+
 大模型(chechpoint等):是具有图形特征的二位向量集合
 CLIP文本编辑器:把提示词转化为计算机识别的具有图形特征的向量,发送给K采样器处理
 K采样器:把提示词代表的图形向量和大模型结合起来,生成新的图形向量
+
 ```
  其中参数CFG:提示词与大模型中的向量匹配及生成的图形的程度,一般5-8之间
         步数:在K采样器中循环降噪而生成图像的次数
@@ -163,9 +161,10 @@ K采样器:把提示词代表的图形向量和大模型结合起来,生成新�
         调度器:控制生成图像时降噪的方法
         种子:生成图像的随机数
         宽高比:生成图像的宽高比 
-        降噪:图生图中相当于重绘幅度0.7,文生图中一般固定1    
-``` 
-VAE解码器:把K采样器生成的图形向量Latents转化为像素空间图像
-        可以用大模型自带的VAE加载器,也可以用自己训练的VAE加载器  
+        降噪:图生图中相当于重绘幅度0.7,文生图中一般固定1  
+```
 
-CTRL＋SHIFT＋V 复制带连线的节点 
+VAE解码器:把K采样器生成的图形向量Latents转化为像素空间图像
+可以用大模型自带的VAE加载器,也可以用自己训练的VAE加载器
+
+CTRL＋SHIFT＋V 复制带连线的节点
