@@ -76,6 +76,8 @@ lowres
 
 normal quality
 
+embedding:EasyNegativeV2   负提示词包
+
 ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),
 
 一 文生图
@@ -142,7 +144,28 @@ controlnet: D:/stable-diffusion-webui/extensions/sd-webui-controlnet/models
 执行 git clone https://github.com/juehackr/comfyui_fk_server.git
 重启 ComfyUI
 
+##　资源
 baidu翻译api密钥,
 https://api.fanyi.baidu.com/manage/developer
 
-20250317002305921    HIpC_oaYUR1WoNCSxbcU
+国外AI网站: civitai
+
+
+
+## comfyui流程节点逻辑
+大模型(chechpoint等):是具有图形特征的二位向量集合
+CLIP文本编辑器:把提示词转化为计算机识别的具有图形特征的向量,发送给K采样器处理
+K采样器:把提示词代表的图形向量和大模型结合起来,生成新的图形向量
+```
+ 其中参数CFG:提示词与大模型中的向量匹配及生成的图形的程度,一般5-8之间
+        步数:在K采样器中循环降噪而生成图像的次数
+        采样器:控制生成图像时降噪的程度
+        调度器:控制生成图像时降噪的方法
+        种子:生成图像的随机数
+        宽高比:生成图像的宽高比 
+        降噪:图生图中相当于重绘幅度0.7,文生图中一般固定1    
+``` 
+VAE解码器:把K采样器生成的图形向量Latents转化为像素空间图像
+        可以用大模型自带的VAE加载器,也可以用自己训练的VAE加载器  
+
+CTRL＋SHIFT＋V 复制带连线的节点 
