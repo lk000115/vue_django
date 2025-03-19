@@ -38,7 +38,7 @@ python -m venv venv01    #
   ps -ef | grep  nginx   显示nginx的进程  
 ```
 
-ai辅助代码插件  marscode ai          markdownlint
+ai辅助代码插件  marscode ai          markdownlint    Md Editor
 
 ## stable diffusion  AI绘画
 
@@ -167,4 +167,10 @@ K采样器:把提示词代表的图形向量和大模型结合起来,生成新�
 VAE解码器:把K采样器生成的图形向量Latents转化为像素空间图像
 可以用大模型自带的VAE加载器,也可以用自己训练的VAE加载器
 
-CTRL＋SHIFT＋V 复制带连线的节点
+## comfyui快捷方式
+
+```
+ctrl+shift+v    节点一起复制
+shift+鼠标左键拖动节点上的输入输出   弹出搜索选择节点  
+
+```
