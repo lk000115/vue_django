@@ -46,38 +46,30 @@ ai辅助代码插件  marscode ai          markdownlint    Md Editor
 
 1 正向提示词
 
+```
 基本结构： 人物+场景+环境+氛围
 high quality 高品质
-
 masterpiece 杰出
-
 best quality 最好品质
-
 photography 摄影作品
-
 ultra highres 超高分辨率
-
 RAW photo 原始照片
-
 extreme detail 极致的细节
+```
 
 2 反向提示词
 
+```
 worst quality
-
 bad quality
-
 low quality
-
 normal quality
-
 lowres
-
 normal quality
-
 embedding:EasyNegativeV2   负提示词包
-
 ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),
+
+```
 
 一 文生图
 1 迭代步数 建议20-30,就像一块模糊的玻璃,擦拭的次数越多,越清晰
@@ -88,6 +80,7 @@ ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),
 
 ## ComfyUI共享WebUI模型
 
+```
 在使用Stable Diffusion的WebUI和ComfyUI时，可能会遇到模型存储空间的问题。如果在WebUI中已经下载了很多模型，
 可以通过共享这些模型来避免重复下载，从而节省存储空间。以下是如何在ComfyUI中共享WebUI模型的步骤：
 
@@ -136,6 +129,9 @@ controlnet: D:/stable-diffusion-webui/extensions/sd-webui-controlnet/models
 
 3通过以上步骤，你可以轻松地在ComfyUI中共享WebUI的模型，从而节省存储空间并提高效率
 
+
+```
+
 ## comfyui提示词翻译插件安装
 
 进入comfyui插件目录 /ComfyUI/custom_nodes/
@@ -170,9 +166,15 @@ VAE解码器:把K采样器生成的图形向量Latents转化为像素空间图�
 ## comfyui快捷方式
 
 ```
-ctrl+shift+v    节点一起复制
-shift+鼠标左键拖动节点上的输入输出   弹出搜索选择节点  
+一  节点一起复制
 
+1  先按CTRL+鼠标全选
+
+2 按CTRL+C 复制所选
+
+3  ctrl+shift+v  就可以节点一起复制到鼠标所指处
+
+shift+鼠标左键拖动节点上的输入输出   弹出搜索选择节点
 ```
 
 ## ComfyUI 搜索节点方法
