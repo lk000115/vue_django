@@ -47,14 +47,17 @@ ai辅助代码插件  marscode ai          markdownlint    Md Editor
 1 正向提示词
 
 ```
+
 基本结构： 人物+场景+环境+氛围
 high quality 高品质
 masterpiece 杰出
 best quality 最好品质
 photography 摄影作品
+Photorealistic  生成的图像如同真实拍摄的照片一般逼真
 ultra highres 超高分辨率
 RAW photo 原始照片
-extreme detail 极致的细节
+extremely detail 极致的细节
+highres  
 ```
 
 2 反向提示词
