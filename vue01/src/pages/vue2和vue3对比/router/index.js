@@ -13,6 +13,11 @@ const routes = [
         path: "/vue3",
         name:"vue3",
         component: ()=>import("../views/vue3.vue")
+    },
+    {
+        path: "/child",
+        name:"child",
+        component: ()=>import("../views/Childe.vue")  
     }
 
 ]
