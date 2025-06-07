@@ -1,15 +1,16 @@
 <template>
 <div class="panel">
     <h3>vue2和vue3写法的对比</h3>
-    <router-view></router-view>   
 </div>
 <p>
     <router-link to="/vue2" >vue2</router-link>
     <router-link :to="{path:'/vue3'}">vue3</router-link>
+    <router-link :to="{name:'vue2'}">vue2</router-link>
 </p>
 <div  class="content">
-   
+    
 </div>
+<router-view></router-view>   
 </template>
 
 
