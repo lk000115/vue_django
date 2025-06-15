@@ -7,7 +7,7 @@
 
 </div>
 <div>
-    <Child :name="name" />
+    <Child :name="name"  @getData="emitsGetData"/>
 </div>
 </template>
 
@@ -26,6 +26,8 @@ export default {
     const newName = computed(()=>{
       return '姓名：'+name.value
     })
+
+    
     
     onMounted(()=>{
       console.log('组件挂载完成');
@@ -34,9 +36,12 @@ export default {
     watch(age,(newValue,oldValue)=>{
       console.log('年龄变化了',newValue,oldValue);
     })
-
-    return { name, age, add }
-
+    
+    const emitsGetData = (data)=>{
+         console.log("子组件传过来的数据",data);
+    } 
+    return { name, age, add, emitsGetData}
+    
   },
   components:{
     Child

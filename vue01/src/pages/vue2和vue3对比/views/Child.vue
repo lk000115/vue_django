@@ -5,8 +5,9 @@
       <li>内容2</li>
     </ul>
     
+   <input type="text" placeholder="请子组件的输入框输入内容" > 
    <button @click="change">修改</button>   
-
+   
   </div>
 
   <div>
@@ -24,7 +25,7 @@
 
 
 <script  setup>
-import { ref,defineProps } from 'vue'
+import { ref,defineProps,defineEmits } from 'vue'
 
 const props = defineProps({
   name: {
@@ -35,10 +36,11 @@ const props = defineProps({
 
 // const props = defineProps(['name'])
 
+const emits = defineEmits(['getData'])
 const change = ()=>{
-  console.log(props);
   // props.name = props.name + "aa"  //父组件传过来的name是只读属性
   
+  emits('getData', {a:100,b:200})
 }
 
 
