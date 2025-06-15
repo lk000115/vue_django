@@ -1966,13 +1966,13 @@ export const useTalkStore = defineStore('talk',()=>{
 
    ```html
    <!--在父组件中，给子组件绑定自定义事件：-->
-   <Child @send-toy="fn"/>
+   写法1： <Child @send-toy="fn"/>
    <Child @send-toy="toy = $event"/>
    
    <!--注意区分原生事件与自定义事件中的$event-->
    <button @click="toy = $event">测试</button>
    
-   const fn = (data)=>{
+   写法1 const fn = (data)=>{
         console.log(data)   //子组件中的666会传给data
    }
    
@@ -1980,9 +1980,9 @@ export const useTalkStore = defineStore('talk',()=>{
    
    ```js
    //子组件中声明事件
-   const emits = defineEmits(['send-toy'])
+   写法1 const emits = defineEmits(['send-toy'])
    //子组件中，触发事件：
-   <button  @click="emit('send-toy',666)"  > 点击触发事件 </button>
+   写法1 <button  @click="emit('send-toy',666)"  > 点击触发事件 </button>
    
    this.$emit('send-toy', 具体数据)
    ```
@@ -2120,6 +2120,7 @@ function sendToy(){
    
    <!-- 上面代码的本质如下 -->
    <AtguiguInput :abc="userName" @update:abc="userName = $event"/>
+   注：$event对于自定义组件上的事件对象，就是子组件传过来的值
    ```
 
    `AtguiguInput`组件中：
@@ -2134,7 +2135,7 @@ function sendToy(){
        >
      </div>
    </template>
-   
+   注 $event对于input原生DOM对象上的事件对象，$event.target.value表示input框的输入值
    <script setup lang="ts" name="AtguiguInput">
      // 接收props
      defineProps(['abc'])
