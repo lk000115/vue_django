@@ -15,7 +15,7 @@
              <router-link :to="{name:'child'}">child</router-link>
             </el-col>
             <el-col :span="12">
-    
+              <router-link :to="{name:'excelImport'}">excel导入</router-link> 
             </el-col>
           </el-row>
       </el-header>
@@ -25,10 +25,10 @@
                   <router-view></router-view> 
               </div>        
 
-               <div class="mb-4">
+               <!-- <div class="mb-4">
 
                    <el-button type="primary" size="large">primary</el-button>
-               </div>
+               </div> -->
 
       </el-main>
     </el-container>

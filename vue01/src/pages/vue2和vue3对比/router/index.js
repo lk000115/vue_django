@@ -18,6 +18,11 @@ const routes = [
         path: "/child",
         name:"child",
         component: ()=>import("../views/Child.vue")  
+    },
+    {
+        path: "/excelImport",
+        name:"excelImport",
+        component: ()=>import("../views/ExcelImport.vue")
     }
 
 ]

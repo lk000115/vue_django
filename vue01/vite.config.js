@@ -27,7 +27,10 @@ export default defineConfig({
     alias:{
       '@': path.resolve(__dirname,'./src'),
     }
+  },
+  build: {
+    commonjsOptions: {
+      esmExternals: true
+    }
   }
-
-
 })
