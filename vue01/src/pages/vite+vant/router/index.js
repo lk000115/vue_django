@@ -1,6 +1,11 @@
 import { createRouter,createWebHashHistory } from "vue-router";
 
 const routes = [
+    {
+        path: "/index",
+        name:"index",
+        component: ()=>import("../views/index/index.vue")
+    },
 
     {
         path: "/login",
