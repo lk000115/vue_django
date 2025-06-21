@@ -1971,6 +1971,7 @@ export const useTalkStore = defineStore('talk',()=>{
    
    <!--注意区分原生事件与自定义事件中的$event-->
    <button @click="toy = $event">测试</button>
+   this.$emit('send-toy', 具体数据)
    
    写法1 const fn = (data)=>{
         console.log(data)   //子组件中的666会传给data
@@ -1984,7 +1985,7 @@ export const useTalkStore = defineStore('talk',()=>{
    //子组件中，触发事件：
    写法1 <button  @click="emit('send-toy',666)"  > 点击触发事件 </button>
    
-   this.$emit('send-toy', 具体数据)
+   
    ```
 
 ## 6.3. 【mitt】
