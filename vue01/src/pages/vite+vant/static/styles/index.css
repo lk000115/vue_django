@@ -5,3 +5,33 @@
 .page-nav-bar .van-nav-bar__title{
     color:#fff
 }
+
+/* 底部导航 */
+
+.footer{
+    height: 60px;
+    background-color: #efaaaa;
+}
+
+.footer-seat {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    border-top:1px solid #48bee2;
+}
+
+.footer-list{
+    max-width: 1080px ;
+    margin: 0 auto;
+    height: 60px;
+
+}
+.footer-list ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+}
