@@ -41,6 +41,7 @@ const router = createRouter({
 
    history: createWebHashHistory(),
    routes, 
+   linkActiveClass: "selected", // 设置激活的链接的类名
 
 }) 
 
