@@ -1,8 +1,7 @@
 <template>
 <div>
-    首页
+    首页展示
 </div>
-
 
 
 
