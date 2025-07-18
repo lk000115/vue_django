@@ -16,14 +16,6 @@ html,body,div,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,le
     list-style-type:none; 
     }
 
-@media (forced-colors: active) {
-  /* 强制颜色模式下的样式 */
-  body {
-    color: black;
-    background-color: white;
-  }
-}
-
 
 a {
     text-decoration: none;
