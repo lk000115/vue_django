@@ -30,8 +30,9 @@ a {
 /* 底部导航 */
 
 .footer{
-    height: 60px;
-    background-color: #efaaaa;
+    /* height: 60px; */
+    border: #efaaaa 1px solid;
+    /* background-color: #efaaaa; */
 }
 
 .footer-seat {
