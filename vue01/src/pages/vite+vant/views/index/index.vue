@@ -1,6 +1,6 @@
 <template>
 <div>
-    首页展示
+    <Header />
 </div>
 
 
@@ -11,7 +11,7 @@
 
 
 <script  setup>
-
+import Header from './header.vue'
 
 
 

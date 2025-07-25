@@ -66,3 +66,28 @@ a {
 .selected {
     color: var(--bgcolor);
 }
+
+/* 头部 */
+.header-search {
+   background-color: #f8d447;
+   padding: 10px; 
+}
+
+.search-list{
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.header-search input{
+   background-color: transparent;
+   margin-left: 10px;
+
+}
+
+.header-search input::placeholder,
+.header-search i
+{
+   color:#999
+
+}
