@@ -91,3 +91,50 @@ a {
    color:#999
 
 }
+
+.header-tabs {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f8d447;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px;
+    color:#6f601b
+}
+/* 排行榜 */
+.charts {
+   display: flex;
+   justify-content: space-between; 
+   padding: 10px;
+}
+
+.charts h4 {
+    font-size: 16px;
+}
+
+.popupList {
+   text-align: center;
+   padding: 10px;
+    
+}
+
+.popupList h4 {
+    font-size: 16px;
+    padding: 10px;
+
+}
+
+.popupList ul {
+ 
+   display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+
+}
+
+.popupList ul li {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,6 +1,7 @@
 <template>
 <div>
     <Header />
+    <Charts />
 </div>
 
 
@@ -12,7 +13,7 @@
 
 <script  setup>
 import Header from './header.vue'
-
+import Charts from './charts.vue'
 
 
 </script>
