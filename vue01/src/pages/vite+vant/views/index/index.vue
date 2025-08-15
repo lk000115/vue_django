@@ -2,6 +2,8 @@
 <div>
     <Header />
     <Charts />
+    <ChartsTab />
+
 </div>
 
 
@@ -14,6 +16,7 @@
 <script  setup>
 import Header from './header.vue'
 import Charts from './charts.vue'
+import ChartsTab from './chartstab.vue'
 
 
 </script>

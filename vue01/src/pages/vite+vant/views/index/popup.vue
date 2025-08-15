@@ -12,14 +12,7 @@
        <div  class="popupList">
             <h4>分类标题</h4>
             <ul>
-                <li>分类</li>
-                <li>分类</li>
-                <li>分类</li>
-                <li>分类</li>
-                <li>分类</li>
-                <li>分类</li>
-                <li>分类</li>
-                <li>分类</li>
+                <li v-for="(item, index) in popuplist" :key="index" :class='n==index ? "active" : "" '  @click="n=index" >{{ item }}</li>
             </ul>
        </div>
 
@@ -37,6 +30,8 @@ const showPopup = () => {
     showRight.value = true;
 };
 
+const popuplist = ref(['首页','都市','历史','悬疑','游戏','分类'])
+const n = ref(0)
 
 
 </script>
