@@ -18,7 +18,7 @@ s.score = 99
 # print(s.score)
 
 def outer(fn):
-    def inner(*args,**kew):
+    def inner(*args,**kew):   #可变参数和关键字参数,任意参数都可接收
         print("增加的功能1")
         fn(*args,**kew)
         print("增加的功能2")
