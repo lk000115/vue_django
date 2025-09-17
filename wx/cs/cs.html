@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex布局测试</title>
+</head>
+<style>
+    .box{
+        display: flex;
+        width: 600px;
+        height: 600px;
+        background-color: lightblue;
+        justify-content:  flex-start;
+        align-content: flex-start;
+        /* align-items: center; */
+    }
+    .item{
+        width: 100px;
+        height: 100px;
+        font-size: 20px;
+        /* text-align: center;
+        line-height: 100px; */
+        background-color: pink;
+        flex-grow: 1;
+    }
+</style>
+<body>
+     <div  class="box">
+        <div  class="item">1</div>
+        <div  class="item">2</div>
+        <div  class="item">3</div>    
+     </div>
+
+
+</body>
+</html>
