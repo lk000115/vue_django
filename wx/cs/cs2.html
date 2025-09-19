@@ -33,22 +33,47 @@
   .page-header {
      height: 70px;
     background-color: rgba(0,0,0,0.7); 
-
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 20px;
+  }
+  .header-nav {
+    display: flex;
+    justify-content: space-around;
+  }
+  .header-nav li a{
+    color:white;
+    font-size: 16px;
+    border:1px solid white;
+    border-radius: 8px;
+    padding: 10px;
+    margin-right:20px; ;
+  }   
+  .header-nav li:last-child a {
+    margin-right: 0;
   }
 
-
-  
 
 </style>
 
 <body>
     <header  class="page-header">
-       
-
+       <a href="#">
+        <img src="../static/pic/H1.png" alt="" width="40px">
+       </a>
+       <ul class="header-nav">
+        <li><a href="#">国内校区</a></li>
+        <li><a href="#">美洲校区</a></li>
+        <li><a href="#">欧盟校区</a></li>
+        <li><a href="#">非洲校区</a></li>
+       </ul>
 
     </header>
 
+    <div  class="content">
 
+    </div>
 
 
 
