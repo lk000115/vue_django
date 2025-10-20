@@ -81,9 +81,21 @@ ng_deepnegative_v1_75t,(badhandv4:1.2),EasyNegative,(worst quality:2),
 1 重绘幅度:建议0.5-0.75 此值越大,AI重绘的想象空间就越大,和原图越不像,越小和原图越像
 2
 
+## comfyui快捷操作
+双击鼠标  打开节点搜索
+选择节点的某个输出项 shift+鼠标左键  打开节点属性
+
+## comfyui节点
+wan2.2 animate    动作迁移和角色替换
+
+infiniteTalk         口型同步
+
+
 ## ComfyUI共享WebUI模型
 
+
 ```
+
 在使用Stable Diffusion的WebUI和ComfyUI时，可能会遇到模型存储空间的问题。如果在WebUI中已经下载了很多模型，
 可以通过共享这些模型来避免重复下载，从而节省存储空间。以下是如何在ComfyUI中共享WebUI模型的步骤：
 
